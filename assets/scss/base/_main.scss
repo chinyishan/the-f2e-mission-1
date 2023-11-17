@@ -27,3 +27,21 @@ img {
     }
   }
 }
+
+button {
+  padding: 10px 30px;
+  font-size: calc(12px + 0.2vw);
+  line-height: calc(18px + 0.2vw);
+  font-weight: 700;
+  border-radius: 8px;
+  background-color: $primary-default;
+  color: $white;
+  border: 0px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    background-color: $primary-light;
+    transition: all 0.3s ease-in-out;
+  }
+}

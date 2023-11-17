@@ -39,12 +39,12 @@
   position: fixed;
   width: 100%;
   margin: 0 auto;
-  top: 4%;
+  top: 6%;
   z-index: 100;
 
   .nav-web {
     position: relative;
-    width: min(1200px, 94%);
+    width: min(1200px, 93%);
     height: 100%;
     padding: 1% 3%;
     margin: 0 auto;
@@ -60,7 +60,7 @@
       content: "";
       position: absolute;
       background-image: url("/assets/images/nav-bg-vc1.png");
-      bottom: 98%;
+      bottom: 99%;
       left: 3%;
       width: 7%;
       height: 40%;
@@ -73,7 +73,6 @@
       font-size: 36px;
       color: $primary-default;
     }
-
     .nav-group {
       display: flex;
       justify-content: space-between;

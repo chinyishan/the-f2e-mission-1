@@ -12,16 +12,17 @@ h2 {
 }
 h3 {
   font-size: calc(20px + 0.3vw);
-  line-height: calc(20px + 0.3vw);
+  line-height: calc(22px + 0.3vw);
+  font-family: "Noto Sans TC", sans-serif;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+h4 {
+  font-size: calc(16px + 0.3vw);
+  line-height: calc(16px + 0.3vw);
   font-family: "Noto Sans TC", sans-serif;
   font-weight: 700;
   letter-spacing: 1px;
-}
-h4 {
-  font-size: 28px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  line-height: 22px;
 }
 p {
   font-size: calc(12px + 0.2vw);

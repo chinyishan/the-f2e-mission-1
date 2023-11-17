@@ -14,10 +14,10 @@ body {
   background-position: top;
   background-repeat: no-repeat;
 }
-.layouts-default {
+/* .layouts-default {
   opacity: 0.5;
   height: 9000px;
-}
+} */
 </style>
 
 <script setup></script>
