@@ -7,17 +7,17 @@
   </div>
 </template>
 
-<style>
+<style lang="scss">
 body {
-  /* background-image: url("@/assets/images/Web.jpg"); */
+  // background-image: url("@/assets/images/Web.jpg");
   background-size: 100% auto;
   background-position: top;
   background-repeat: no-repeat;
 }
-/* .layouts-default {
-  opacity: 0.5;
-  height: 9000px;
-} */
+// #__nuxt {
+//   opacity: 0.5;
+//   height: 9000px;
+// }
 </style>
 
 <script setup></script>

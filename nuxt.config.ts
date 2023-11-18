@@ -12,6 +12,9 @@ export default defineNuxtConfig({
       }
     }
   },
+  build: {
+    transpile: ['gsap'],
+  },
   app: {
     head: {
       title: '喵立翰 Miao Li-Han - 喵的未來，人的希望',

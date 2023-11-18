@@ -1,3 +1,61 @@
-.h2 {
-  background-color: #fa0;
+.main-footer {
+  background-color: $primary-default;
+  .container {
+    width: min(1200px, 94%);
+    margin: 0 auto;
+    padding: 4% 0;
+
+    .footer-row {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+
+      .footer-col {
+        padding: 0 3%;
+        height: auto;
+
+        .information-title {
+          display: block;
+          color: $secondary-default;
+          font-size: calc(12px + 0.2vw);
+          line-height: calc(18px + 0.2vw);
+          font-family: "Noto Sans TC", sans-serif;
+          font-weight: 700;
+          letter-spacing: 1px;
+          margin-bottom: 10px;
+        }
+        ul {
+          li {
+            color: $white;
+            font-size: calc(12px + 0.2vw);
+            line-height: calc(18px + 0.2vw);
+            font-family: "Noto Sans TC", sans-serif;
+            font-weight: 400;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+          }
+        }
+        &:nth-child(3) {
+          .information-link {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 4% 0 10%;
+            a {
+              margin-right: 10px;
+            }
+          }
+          p {
+            color: $white;
+            font-size: calc(12px + 0.2vw);
+            line-height: calc(18px + 0.2vw);
+            font-family: "Noto Sans TC", sans-serif;
+            font-weight: 400;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+          }
+        }
+      }
+    }
+  }
 }

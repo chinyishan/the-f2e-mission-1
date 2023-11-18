@@ -1,37 +1,24 @@
 <template>
   <div class="app-container">
     <section class="main-advocate">
-      <div class="container">
-        <h2 class="advocate-name"><strong>喵立翰</strong>Miao Li-Han</h2>
-        <div class="advocate-text">
-          <p>
-            我堅信，藉由<strong>推動更完善的貓咪福利和相關政策</strong>，更是間接地投資於台灣的未來。
-          </p>
-          <p>畢竟，民眾的身心健康與工作熱情是推動經濟的核心動力。</p>
-          <p>透過完善的貓咪福利政策，為台灣的GDP 經濟帶來巨大效益。</p>
-          <p>
-            因此，我期望能在立法院內推進這些政策，<strong>確保每一隻貓咪都能得到他們應有的照顧</strong>，
-          </p>
-          <p>同時也為台灣的經濟發展助一臂之力。</p>
-        </div>
-        <h3 class="advocate-slogan">
-          讓我們一同護航台灣的幸福經濟，從照顧每一隻貓咪開始！
-        </h3>
-        <img class="advocate-bg" src="@/assets/images/vote-miao.png" alt="" />
-      </div>
+      <HomeAdvocate />
     </section>
     <section class="main-news">
       <div class="container">
-        <img class="box" src="@/assets/images/vote-box.png" alt="" />
+        <img class="box" src="@/assets/images/vote-box.png" alt="VOTA-BOX" />
         <h2 class="title">掌握喵喵最新活動！</h2>
         <div class="news-row">
           <div class="news-col pic">
-            <img src="@/assets/images/news-1.jpeg" alt="" />
+            <img
+              src="@/assets/images/news-1.jpeg"
+              alt="活動照片"
+              title="活動照片"
+            />
           </div>
           <div class="news-col text">
             <div class="news-group">
               <div class="news-foot">
-                <img src="@/assets/images/foot.png" alt="" />
+                <img src="@/assets/images/foot.png" alt="腳印" />
               </div>
               <div class="news-data">12/26</div>
               <h3 class="news-title">參與台北寵物論壇，爭取貓咪友善環境</h3>
@@ -46,7 +33,7 @@
             </div>
             <div class="news-group">
               <div class="news-foot">
-                <img src="@/assets/images/foot.png" alt="" />
+                <img src="@/assets/images/foot.png" alt="腳印" />
               </div>
               <div class="news-data">12/24</div>
               <h3 class="news-title">
@@ -60,7 +47,7 @@
             </div>
             <div class="news-group">
               <div class="news-foot">
-                <img src="@/assets/images/foot.png" alt="" />
+                <img src="@/assets/images/foot.png" alt="腳印" />
               </div>
               <div class="news-data">12/20</div>
               <h3 class="news-title">收容所模特兒大比拼！</h3>
@@ -125,13 +112,25 @@
           <div class="policy-swiper">
             <div class="swiper-policy">
               <div class="swiper-pic">
-                <img src="@/assets/images/strategy-1.png" alt="" />
+                <img
+                  src="@/assets/images/strategy-1.png"
+                  alt="01-設立寵物醫療基金"
+                  title="01-設立寵物醫療基金"
+                />
               </div>
               <div class="swiper-pic">
-                <img src="@/assets/images/strategy-2.png" alt="" />
+                <img
+                  src="@/assets/images/strategy-2.png"
+                  alt="02-提供醫療補助"
+                  title="02-提供醫療補助"
+                />
               </div>
               <div class="swiper-pic">
-                <img src="@/assets/images/strategy-3.png" alt="" />
+                <img
+                  src="@/assets/images/strategy-3.png"
+                  alt="03-合作動物醫院"
+                  title="03-合作動物醫院"
+                />
               </div>
             </div>
           </div>
@@ -139,39 +138,7 @@
       </div>
     </section>
     <section class="main-donate">
-      <div class="container">
-        <h2>您的小筆捐款，是每隻毛孩未來的大大動力！</h2>
-        <p class="price">目前贊助總金額 : NT$ 987,655,873</p>
-        <div class="donate-row">
-          <div class="donate-col">
-            <h3>「喵星人之友」</h3>
-            <p>捐款新台幣600元</p>
-            <button>馬上支持 !</button>
-            <span>已有 9,957 人贊助</span>
-          </div>
-          <div class="donate-col">
-            <h3>「喵星大使」</h3>
-            <p>捐款新台幣6,000元</p>
-            <button>馬上支持 !</button>
-            <span>已有 2,000 人贊助</span>
-          </div>
-          <div class="donate-col">
-            <h3>「喵星人之友」</h3>
-            <p>捐款新台幣60,000元</p>
-            <button>馬上支持 !</button>
-            <span>已有 999人贊助</span>
-          </div>
-        </div>
-        <div class="custom-group">
-          <h3>「 自訂贊助金額 」</h3>
-          <p>目前小額贊助總金額 : NT$ 655,873</p>
-          <div class="input-content">
-            <label>NT$</label>
-            <input type="text" />
-          </div>
-          <button>馬上支持 !</button>
-        </div>
-      </div>
+      <HomeDonate />
     </section>
     <section class="main-suggestion">
       <HomeSuggestion />
@@ -183,47 +150,8 @@
 .app-container {
   .main-advocate {
     padding-bottom: 7vw;
-    .advocate-name {
-      font-size: calc(32px + 2vw);
-      line-height: calc(32px + 2vw);
-      font-family: "Gaegu", sans-serif;
-      font-weight: 400;
-      letter-spacing: 0.5px;
-      color: $primary-default;
-      text-align: center;
-      margin-bottom: 1vw;
-
-      strong {
-        display: inline-block;
-        font-size: calc(32px + 0.8vw);
-        line-height: calc(32px + 0.8vw);
-        font-family: "Noto Serif TC", serif;
-        font-weight: 700;
-        margin-right: 4%;
-      }
-    }
-    .advocate-text {
-      margin-bottom: 1vw;
-      p {
-        line-height: calc(14px + 1vw);
-        text-align: center;
-        margin: 0 auto;
-        color: $black;
-        strong {
-          color: $primary-default;
-        }
-      }
-    }
-    .advocate-slogan {
-      color: $primary-default;
-      font-size: calc(20px + 0.3vw);
-      line-height: calc(20px + 0.3vw);
-      text-align: center;
-      margin-bottom: 3vw;
-    }
-    .advocate-bg {
-      width: 80%;
-    }
+    position: relative;
+    z-index: 2;
   }
   .main-news {
     position: relative;
@@ -383,8 +311,6 @@
               letter-spacing: 2px;
               margin-bottom: 16px;
             }
-            p {
-            }
           }
         }
       }
@@ -421,119 +347,6 @@
       background-repeat: no-repeat;
       background-position: bottom center;
       background-size: contain;
-    }
-    .container {
-      position: relative;
-      z-index: 3;
-    }
-    h2 {
-      text-align: center;
-      color: $primary-default;
-      margin-bottom: 2vw;
-    }
-    .price {
-      text-align: center;
-      color: $primary-light;
-      font-size: calc(20px + 0.3vw);
-      line-height: calc(22px + 0.3vw);
-      font-family: "Noto Sans TC", sans-serif;
-      font-weight: 700;
-      letter-spacing: 1px;
-      margin-bottom: 4vw;
-    }
-    .donate-row {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-bottom: 8vw;
-
-      .donate-col {
-        width: 21%;
-        margin: 0 2%;
-        padding: 3% 2%;
-        background-color: $white;
-        border-radius: 20px;
-        border: 1px solid $primary-default;
-        box-shadow: 6px 8px 0 0 $secondary-default;
-        text-align: center;
-
-        h3 {
-          text-align: center;
-          color: $primary-default;
-          margin-bottom: 1.4vw;
-        }
-        p {
-          color: $primary-light;
-          text-align: center;
-          font-size: calc(12px + 0.3vw);
-          line-height: calc(12px + 0.3vw);
-          font-family: "Noto Sans TC", sans-serif;
-          font-weight: 500;
-          letter-spacing: 1px;
-          margin-bottom: 2.6vw;
-        }
-        button {
-          margin-bottom: 1vw;
-        }
-        span {
-          display: block;
-          color: $primary-light;
-          font-size: calc(12px + 0.2vw);
-          line-height: calc(18px + 0.2vw);
-          font-family: "Noto Sans TC", sans-serif;
-          font-weight: 500;
-          letter-spacing: 1px;
-        }
-      }
-    }
-    .custom-group {
-      text-align: center;
-
-      h3 {
-        color: $primary-default;
-        margin-bottom: 1.4vw;
-      }
-      p {
-        color: $primary-light;
-        text-align: center;
-        font-size: calc(16px + 0.3vw);
-        line-height: calc(16px + 0.3vw);
-        font-family: "Noto Sans TC", sans-serif;
-        font-weight: 500;
-        letter-spacing: 1px;
-        margin-bottom: 1.6vw;
-      }
-      .input-content {
-        position: relative;
-        width: 34%;
-        margin: 0 auto 2vw;
-
-        input {
-          font-size: calc(16px + 0.3vw);
-          padding: 10px 10px 10px 5px;
-          display: block;
-          width: 100%;
-          border: none;
-          border-bottom: 1px solid $primary-default;
-          background-color: transparent;
-          text-align: center;
-        }
-        input:focus {
-          outline: none;
-        }
-        label {
-          position: absolute;
-          color: $primary-default;
-          font-size: calc(18px + 0.2vw);
-          line-height: calc(18px + 0.2vw);
-          font-family: "Noto Sans TC", sans-serif;
-          font-weight: 700;
-          letter-spacing: 1.2px;
-          pointer-events: none;
-          left: 5px;
-          top: 10px;
-        }
-      }
     }
   }
   .main-suggestion {
