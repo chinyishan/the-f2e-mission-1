@@ -23,7 +23,7 @@
       />
       <div class="vote-pic">
         <div class="vote-miao">
-          <img src="@/assets/images/ballot-2.png" alt="" />
+          <img src="@/assets/images/ballot-2.png" alt="投票" />
         </div>
       </div>
     </div>
@@ -41,15 +41,15 @@ onMounted(() => {
   let voteMiao = gsap.timeline();
   voteMiao.to(".vote-miao", {
     y: 160,
-    duration: 2.5,
-    ease: "power2.out",
+    duration: 2,
+    ease: "none",
     scrollTrigger: {
       trigger: ".vote-miao",
       start: "-200 top",
       end: "+=250 top",
       pin: true,
       scrub: true,
-      markers: true,
+      // markers: true,
     },
   });
 });

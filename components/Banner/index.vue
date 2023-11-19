@@ -61,27 +61,146 @@
   </div>
 </template>
 <script setup>
-import { onMounted, onUnmounted, ref } from "vue";
+import { onMounted } from "vue";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
 onMounted(() => {
-  let bannerItems = gsap.timeline();
-  bannerItems.to(".banner-items", {
-    y: -620,
-    duration: 2,
-    ease: "power1.out",
-    scrollTrigger: {
-      trigger: ".banner-items",
-      start: "top top",
-      end: "+=150 top",
-      pin: true,
-      scrub: true,
-      markers: true,
-    },
+  ScrollTrigger.create({
+    trigger: ".main-banner",
+    pin: true,
+    start: "top top",
+    end: "+=800",
+    // markers: true,
   });
+  let bannerItems = gsap.timeline();
+  bannerItems
+    .to(".banner-items", {
+      y: -540,
+      duration: 2,
+      ease: "none",
+      scrollTrigger: {
+        trigger: ".banner-items",
+        start: "top top",
+        end: "+=400 top",
+        pin: true,
+        scrub: 0.5,
+        // markers: true,
+      },
+    })
+    .to(".item-1", {
+      x: -10,
+      y: 30,
+      duration: 0.5,
+      ease: "none",
+      scrollTrigger: {
+        start: "100",
+        end: "300",
+        pin: true,
+        scrub: 0.5,
+        // markers: true,
+      },
+    })
+    .to(".item-2", {
+      x: 40,
+      y: -50,
+      rotation: 12,
+      duration: 0.5,
+      ease: "none",
+      scrollTrigger: {
+        start: "100",
+        end: "300",
+        pin: true,
+        scrub: 0.5,
+        // markers: true,
+      },
+    })
+    .to(".item-3", {
+      x: 120,
+      y: -80,
+      rotation: -16,
+      duration: 0.5,
+      ease: "none",
+      scrollTrigger: {
+        start: "100",
+        end: "300",
+        pin: true,
+        scrub: 0.5,
+        // markers: true,
+      },
+    })
+    .to(".item-4", {
+      x: -70,
+      y: -70,
+      rotation: 9,
+      duration: 0.5,
+      ease: "none",
+      scrollTrigger: {
+        start: "100",
+        end: "300",
+        pin: true,
+        scrub: 0.5,
+        // markers: true,
+      },
+    })
+    .to(".item-5", {
+      x: 60,
+      y: -80,
+      rotation: -10,
+      duration: 0.5,
+      ease: "none",
+      scrollTrigger: {
+        start: "100",
+        end: "300",
+        pin: true,
+        scrub: 0.5,
+        // markers: true,
+      },
+    })
+    .to(".item-6", {
+      x: -130,
+      y: -10,
+      rotation: -6,
+      duration: 0.5,
+      ease: "none",
+      scrollTrigger: {
+        start: "100",
+        end: "300",
+        pin: true,
+        scrub: 0.5,
+        // markers: true,
+      },
+    })
+    .to(".item-7", {
+      x: -150,
+      y: -140,
+      rotation: 6,
+      duration: 0.5,
+      ease: "none",
+      scrollTrigger: {
+        start: "100",
+        end: "300",
+        pin: true,
+        scrub: 0.5,
+        // markers: true,
+      },
+    })
+    .to(".item-8", {
+      x: -20,
+      y: 40,
+      rotation: 4,
+      duration: 0.5,
+      ease: "none",
+      scrollTrigger: {
+        start: "100",
+        end: "300",
+        pin: true,
+        scrub: 0.5,
+        // markers: true,
+      },
+    });
 });
 </script>
 <style lang="scss">
@@ -163,7 +282,7 @@ onMounted(() => {
       &.item-3 {
         bottom: 8%;
         right: 14%;
-        transform: rotate(5.8deg);
+        transform: rotate(6deg);
       }
       &.item-4 {
         bottom: 9%;

@@ -113,6 +113,7 @@ export default {};
             textarea {
               width: 100%;
               height: 100%;
+              border-radius: 4px;
               border: 1px solid #c9f1ef;
               background-color: $white;
               resize: none;
