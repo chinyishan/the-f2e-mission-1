@@ -1,15 +1,26 @@
 @import url("https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&family=Noto+Sans+TC:wght@100;200;300;400;500;600;700;800;900&family=Noto+Serif+TC:wght@200;300;400;500;600;700;900&display=swap");
-body {
-  font-family: "Gaegu", sans-serif;
-  font-family: "Noto Sans TC", sans-serif;
-  font-family: "Noto Serif TC", serif;
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul li,
+ol li,
+span {
+  font-family: "Noto Sans TC", "Roboto", sans-serif !important;
 }
+
 h2 {
   font-size: 40px;
   font-weight: 700;
   font-family: "Noto Sans TC", sans-serif;
   letter-spacing: 2px;
 }
+
 h3 {
   font-size: calc(20px + 0.3vw);
   line-height: calc(22px + 0.3vw);
@@ -17,6 +28,7 @@ h3 {
   font-weight: 700;
   letter-spacing: 2px;
 }
+
 h4 {
   font-size: calc(16px + 0.3vw);
   line-height: calc(16px + 0.3vw);
@@ -24,6 +36,7 @@ h4 {
   font-weight: 700;
   letter-spacing: 1px;
 }
+
 p {
   font-size: calc(12px + 0.2vw);
   line-height: calc(18px + 0.2vw);
