@@ -1,207 +1,192 @@
 <template>
-  <div class="container wrap-news">
-    <div class="box">
-      <img src="@/assets/images/vote-box.png" alt="VOTA-BOX" />
-    </div>
-    <h2 class="title">掌握喵喵最新活動！</h2>
-    <div class="news-row">
-      <div class="news-col col-pic">
-        <img
-          src="@/assets/images/news-1.jpeg"
-          alt="活動照片"
-          title="活動照片"
-        />
+  <section class="section news">
+    <div class="container news__container">
+      <div class="news__box">
+        <img src="@/assets/images/vote-box.png" alt="VOTA-BOX" />
       </div>
-      <div class="news-col col-text">
-        <div class="news-group" id="news-1">
-          <div class="news-foot">
-            <img src="@/assets/images/foot.png" alt="腳印" />
+      <div class="news__swiper">
+        <h2 class="news__title">掌握喵喵最新活動！</h2>
+        <div class="news__row" id="news__row">
+          <div class="news__col news__col--imgs">
+            <div
+              class="news__col--img"
+              :id="`news-img-${item.id}`"
+              v-for="item in data.news"
+              :key="item.id"
+            >
+              <img
+                :src="img.imagesJpg[item.images]"
+                :alt="item.title"
+                :title="item.title"
+              />
+            </div>
           </div>
-          <div class="news-data">12/26</div>
-          <h3 class="news-title">參與台北寵物論壇，爭取貓咪友善環境</h3>
-          <div class="news-txt">
-            <p>
-              炎炎夏日的周六，我走進了台北寵物論壇，帶著一副貓耳髮箍，決定要全力宣傳「貓咪至上」的理念！
-            </p>
-            <p>我相信，我們的都市中，每一隻貓咪都應該有自己的VIP休憩空間。</p>
-          </div>
-        </div>
-        <div class="news-group" id="news-2">
-          <div class="news-foot">
-            <img src="@/assets/images/foot.png" alt="腳印" />
-          </div>
-          <div class="news-data">12/24</div>
-          <h3 class="news-title">掃街模式開啟！帶著你的貓耳，來和我一起走！</h3>
-          <div class="news-txt">
-            <p>
-              街上氣氛真的很棒，從小孩到大人，甚至有些狗狗朋友都帶著貓耳來找我握手，真的太可愛了！這次的活動不僅讓我看到大家的熱情，更加堅定了我推進「貓咪友善環境」政策的決心。
-            </p>
-          </div>
-        </div>
-        <div class="news-group" id="news-3">
-          <div class="news-foot">
-            <img src="@/assets/images/foot.png" alt="腳印" />
-          </div>
-          <div class="news-data">12/20</div>
-          <h3 class="news-title">收容所模特兒大比拼！</h3>
-          <div class="news-txt">
-            <p>今天的收容所不再是一片寂靜。</p>
-            <p>
-              為了讓更多人認識到這裡的毛孩子，我們舉辦了一場前所未有的「模特兒走秀」！
-            </p>
-          </div>
+          <ul class="news__col news__col--list">
+            <li
+              class="news__col--item"
+              :id="`news-item-${item.id}`"
+              v-for="item in data.news"
+              :key="item.id"
+            >
+              <div class="news__col--foot">
+                <img src="@/assets/images/foot.png" alt="foot" />
+              </div>
+              <div class="news__col--date">{{ item.date }}</div>
+              <h3 class="news__col--title">
+                {{ item.title }}
+              </h3>
+              <div class="news__col--text">
+                <p>{{ item.content }}</p>
+              </div>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script setup>
-// import { onMounted, onUnmounted, ref } from "vue";
-// import { gsap } from "gsap";
-// import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { onMounted } from "vue"; //, onUnmounted, ref
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-const newsData = reactive([
-  {
-    id: 1,
-    data: "12/26",
-    title: "參與台北寵物論壇，爭取貓咪友善環境",
-    text_1:
-      "炎炎夏日的周六，我走進了台北寵物論壇，帶著一副貓耳髮箍，決定要全力宣傳「貓咪至上」的理念！",
-    text_2: "我相信，我們的都市中，每一隻貓咪都應該有自己的VIP休憩空間。",
-    image: "news-1.jpeg",
-  },
-]);
+const img = useImg();
+console.log(img);
 
-// gsap.registerPlugin(ScrollTrigger);
+const { data } = await useFetch(`/api/base`);
+console.log(data);
 
-// onMounted(() => {
-//   ScrollTrigger.create({
-//     trigger: ".wrap-news",
-//     pin: true,
-//     start: "top top",
-//     end: "+=1800",
-//     markers: true,
-//   });
-//   let newsItems = gsap.timeline();
-//   newsItems
-//     .to(".wrap-news", {
-//       duration: 3,
-//       ease: "none",
-//       scrollTrigger: {
-//         trigger: ".wrap-news",
-//         start: "top top",
-//         end: "bottom top",
-//         pin: true,
-//         scrub: 0.5,
-//         markers: true,
-//       },
-//     })
-//     .to("#news-1", {
-//       scale: 1.1,
-//       x: 28,
-//       duration: 1,
-//       ease: "none",
-//       scrollTrigger: {
-//         start: "-300",
-//         end: "0",
-//         pin: true,
-//         scrub: 0.5,
-//         markers: true,
-//       },
-//     });
-//   .to("#news-2", {
-//     scale: 1.1,
-//     x: 28,
-//     duration: 0.5,
-//     ease: "none",
-//     scrollTrigger: {
-//       start: "400",
-//       end: "700",
-//       pin: true,
-//       scrub: 0.5,
+gsap.registerPlugin(ScrollTrigger);
+
+onMounted(() => {
+  ScrollTrigger.create({
+    trigger: ".news__swiper",
+    pin: true,
+    start: "top top",
+    end: "+=4000", //+=1000"
+    scrub: true,
+    markers: true,
+    animation: gsap
+      .timeline()
+      .to("#news-item-1", {
+        opacity: 1,
+        scale: 1,
+        duration: 1,
+        ease: "power1.out",
+      })
+      .to(
+        "#news-img-1",
+        {
+          opacity: 1,
+          duration: 1,
+          ease: "power1.out",
+        },
+        "<"
+      )
+      .to("#news-item-1", {
+        opacity: 0.5,
+        scale: 0.9,
+        duration: 1,
+        delay: 2,
+        ease: "power1.out",
+      })
+      .to(
+        "#news-img-1",
+        {
+          opacity: 0,
+          duration: 1,
+          delay: 2,
+          ease: "power1.out",
+        },
+        "<"
+      )
+      .to("#news-item-2", {
+        opacity: 1,
+        scale: 1,
+        duration: 1,
+        ease: "power1.out",
+      })
+      .to(
+        "#news-img-2",
+        {
+          opacity: 1,
+          duration: 1,
+          ease: "power1.out",
+        },
+        "<"
+      )
+      .to("#news-item-2", {
+        opacity: 0.5,
+        scale: 0.9,
+        duration: 1,
+        delay: 2,
+        ease: "power1.out",
+      })
+      .to(
+        "#news-img-2",
+        {
+          opacity: 0,
+          duration: 1,
+          delay: 2,
+          ease: "power1.out",
+        },
+        "<"
+      )
+      .to("#news-item-3", {
+        opacity: 1,
+        scale: 1,
+        duration: 1,
+        ease: "power1.out",
+      })
+      .to(
+        "#news-img-3",
+        {
+          opacity: 1,
+          duration: 1,
+          ease: "power1.out",
+        },
+        "<"
+      ),
+  });
+});
+
+// scrollTrigger: {
+//       trigger: ".news-swiper",
+//       // start: "top top",
+//       // end: "+=1000",
+//       scrub: true, // 啟用滾動時平滑過渡
 //       markers: true,
 //     },
-//   })
-//   .to("#news-3", {
-//     scale: 1.1,
-//     x: 28,
-//     duration: 0.5,
-//     ease: "none",
-//     scrollTrigger: {
-//       start: "1100",
-//       end: "1400",
-//       pin: true,
-//       scrub: 0.5,
-//       markers: true,
-//     },
-//   });
-// });
+// keyframes: [
+//         { opacity: 0.5, scale: 0.9, duration: 1 },
+//         { opacity: 1, scale: 1, duration: 1 },
+//         { opacity: 0.5, scale: 0.9, duration: 1 }, //, delay: 2
+//       ],
 </script>
 
 <style lang="scss" scoped>
-.container {
-  .box {
+.news {
+  position: relative;
+  background-color: $primary-default;
+  border-radius: calc(20px + 10vw) calc(20px + 10vw) 0 0;
+  padding-bottom: 4vw;
+
+  &__box {
     width: 32%;
     padding: 20px 0 60px;
     margin: 0 auto;
   }
-  .title {
+  &__title {
     color: $white;
     text-align: center;
     padding-bottom: 2vw;
   }
-  .news-row {
+  &__row {
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
-
-    .news-col {
-      margin: 0 3%;
-      &.col-pic {
-        width: 40%;
-        border-radius: calc(6px + 1vw);
-        overflow: hidden;
-        box-shadow: -16px -16px 0px 0px #fadca8;
-      }
-      &.col-text {
-        width: 44%;
-        .news-group {
-          margin-top: 30px;
-          margin-bottom: 60px;
-          position: relative;
-          z-index: 4;
-          .news-foot {
-            position: absolute;
-            top: -4%;
-            right: 101%;
-            width: 8%;
-            padding: 1%;
-            border-radius: 100%;
-            background-color: $primary-default;
-          }
-          .news-data {
-            color: $secondary-default;
-            font-size: calc(24px + 0.2vw);
-            line-height: calc(24px + 0.2vw);
-            font-weight: 700;
-            font-family: "Noto Sans TC", sans-serif;
-            padding-bottom: 14px;
-          }
-          .news-title {
-            color: $secondary-default;
-            font-size: calc(18px + 0.2vw);
-            line-height: calc(18px + 0.2vw);
-            padding-bottom: 10px;
-          }
-          .news-txt {
-            color: $white;
-            line-height: calc(16px + 0.6vw);
-          }
-        }
-      }
-    }
 
     &::after {
       content: "";
@@ -213,6 +198,80 @@ const newsData = reactive([
       left: 48.5%;
       background-color: $white;
     }
+  }
+  &__col {
+    margin: 0 3%;
+
+    &--imgs {
+      width: 480px;
+      height: 480px;
+      position: relative;
+      // overflow: hidden;
+    }
+    &--img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      border-radius: calc(6px + 1vw);
+      box-shadow: -16px -16px 0px 0px #fadca8;
+      overflow: hidden;
+      opacity: 0;
+    }
+    &--list {
+      width: 44%;
+    }
+    &--item {
+      margin-top: 30px;
+      margin-bottom: 60px;
+      position: relative;
+      z-index: 4;
+      opacity: 0.5;
+      scale: 0.9;
+    }
+    &--foot {
+      position: absolute;
+      top: -4%;
+      right: 101%;
+      width: 8%;
+      padding: 1%;
+      border-radius: 100%;
+      background-color: $primary-default;
+    }
+    &--date {
+      color: $secondary-default;
+      font-size: calc(24px + 0.2vw);
+      line-height: calc(24px + 0.2vw);
+      font-weight: 700;
+      font-family: "Noto Sans TC", sans-serif;
+      padding-bottom: 14px;
+    }
+    &--title {
+      color: $secondary-default;
+      font-size: calc(18px + 0.2vw);
+      line-height: calc(18px + 0.2vw);
+      padding-bottom: 10px;
+    }
+    &--text {
+      color: $white;
+      line-height: calc(16px + 0.6vw);
+    }
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 50%;
+    bottom: 99%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    background-image: url("@/assets/images/bg-ear-web.png");
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    background-size: 100% auto;
   }
 }
 </style>

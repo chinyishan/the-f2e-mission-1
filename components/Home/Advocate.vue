@@ -82,7 +82,7 @@ onMounted(() => {
       line-height: calc(14px + 1vw);
       text-align: center;
       margin: 0 auto;
-      color: $black;
+      color: $black-1;
       strong {
         color: $primary-default;
       }

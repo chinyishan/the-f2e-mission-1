@@ -1,5 +1,15 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  devServer: {
+    host: "0.0.0.0", // default: localhost
+    port: 9890,
+  },
+  runtimeConfig: {
+    apiToken: "",
+    public: {
+      apiBase: "",
+    },
+  },
   devtools: {
     enabled: true,
   },

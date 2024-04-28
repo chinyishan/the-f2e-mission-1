@@ -1,11 +1,7 @@
 // base
 @import "base/reset";
-@import "base/color";
-@import "base/font";
 @import "base/main";
-
-//mixin
-@import "mixin/mixin";
+@import "base/mixin";
 
 //layout
 @import "layout/header";

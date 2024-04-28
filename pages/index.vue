@@ -3,9 +3,10 @@
     <section class="main-advocate">
       <HomeAdvocate />
     </section>
-    <section class="main-news">
+    <HomeNews />
+    <!-- <section class="main-news">
       <HomeNews />
-    </section>
+    </section> -->
     <section class="main-policy">
       <div class="container max-container">
         <div class="policy-row">
@@ -97,27 +98,27 @@
     position: relative;
     z-index: 2;
   }
-  .main-news {
-    position: relative;
-    background-color: $primary-default;
-    border-radius: calc(20px + 10vw) calc(20px + 10vw) 0 0;
-    padding-bottom: 4vw;
+  // .main-news {
+  //   position: relative;
+  //   background-color: $primary-default;
+  //   border-radius: calc(20px + 10vw) calc(20px + 10vw) 0 0;
+  //   padding-bottom: 4vw;
 
-    &::before {
-      content: "";
-      position: absolute;
-      display: block;
-      width: 100%;
-      height: 50%;
-      bottom: 99%;
-      left: 50%;
-      transform: translate(-50%, 0%);
-      background-image: url("@/assets/images/bg-ear-web.png");
-      background-repeat: no-repeat;
-      background-position: bottom center;
-      background-size: 100% auto;
-    }
-  }
+  //   &::before {
+  //     content: "";
+  //     position: absolute;
+  //     display: block;
+  //     width: 100%;
+  //     height: 50%;
+  //     bottom: 99%;
+  //     left: 50%;
+  //     transform: translate(-50%, 0%);
+  //     background-image: url("@/assets/images/bg-ear-web.png");
+  //     background-repeat: no-repeat;
+  //     background-position: bottom center;
+  //     background-size: 100% auto;
+  //   }
+  // }
   .main-policy {
     position: relative;
     background-color: $primary-default;

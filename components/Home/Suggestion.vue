@@ -73,7 +73,7 @@ export default {};
       text-align: center;
       font-size: calc(14px + 0.3vw);
       line-height: calc(20px + 0.3vw);
-      color: $black;
+      color: $black-1;
     }
   }
   .suggestion-form {
