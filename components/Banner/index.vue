@@ -72,7 +72,7 @@ onMounted(() => {
     trigger: ".main-banner",
     pin: true,
     start: "top top",
-    end: "+=800",
+    end: "+=600",
     // markers: true,
   });
   let bannerItems = gsap.timeline();

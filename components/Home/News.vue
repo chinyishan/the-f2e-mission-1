@@ -63,8 +63,8 @@ onMounted(() => {
   ScrollTrigger.create({
     trigger: ".news__swiper",
     pin: true,
-    start: "top top",
-    end: "+=4000", //+=1000"
+    start: "-120 top",
+    end: "+=2000", //+=1000"
     scrub: true,
     markers: true,
     animation: gsap
@@ -180,7 +180,7 @@ onMounted(() => {
   &__title {
     color: $white;
     text-align: center;
-    padding-bottom: 2vw;
+    // padding-bottom: 2vw;
   }
   &__row {
     display: flex;
@@ -206,7 +206,6 @@ onMounted(() => {
       width: 480px;
       height: 480px;
       position: relative;
-      // overflow: hidden;
     }
     &--img {
       position: absolute;
@@ -218,6 +217,10 @@ onMounted(() => {
       box-shadow: -16px -16px 0px 0px #fadca8;
       overflow: hidden;
       opacity: 0;
+
+      &:nth-child(1) {
+        opacity: 0.5;
+      }
     }
     &--list {
       width: 44%;
