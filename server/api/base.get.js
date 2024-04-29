@@ -85,5 +85,41 @@ export default defineEventHandler((event) => {
     },
   ];
 
-  return { navRoute, donate, news };
+  const policy = [
+    {
+      id: 1,
+      no: "政策 No.1",
+      no_text: "為毛孩子謀福利！推動寵物醫療保障方案",
+      title: "01 設立寵物醫療基金",
+      images: "policy-1",
+      content: [
+        "每年撥款新台幣 5 億元，用於在各大都市建立專屬的寵物公園。",
+        "根據初步規劃，預計在第一年內，將在全國範圍內建立至少 10 座寵物公園。",
+      ],
+    },
+    {
+      id: 2,
+      no: "政策 No.2",
+      no_text: "打造休閒天堂！推廣寵物休閒與娛樂場所",
+      title: "02 提供醫療補助",
+      images: "policy-2",
+      content: [
+        "鼓勵商家提供寵物友善的環境，並為參與的商家提供稅收優惠。",
+        "預計在政策實施後的首年，將有超過 500 家商家加入此計畫。",
+      ],
+    },
+    {
+      id: 1,
+      no: "政策 No.3",
+      no_text: "推廣寵物飼養教育，讓愛更加專業！",
+      title: "03 合作動物醫院",
+      images: "policy-3",
+      content: [
+        "與各大寵物社團和組織合作，每年舉辦至少 5 場大型的寵物活動，",
+        "包括寵物才藝比賽、飼養知識工作坊等。",
+      ],
+    },
+  ];
+
+  return { navRoute, donate, news, policy };
 });

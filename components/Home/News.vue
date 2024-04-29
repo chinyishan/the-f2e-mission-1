@@ -63,7 +63,7 @@ onMounted(() => {
   ScrollTrigger.create({
     trigger: ".news__swiper",
     pin: true,
-    start: "-120 top",
+    start: "-100 top",
     end: "+=2000", //+=1000"
     scrub: true,
     markers: true,
@@ -226,8 +226,8 @@ onMounted(() => {
       width: 44%;
     }
     &--item {
-      margin-top: 30px;
-      margin-bottom: 60px;
+      margin-top: 20px;
+      margin-bottom: 50px;
       position: relative;
       z-index: 4;
       opacity: 0.5;

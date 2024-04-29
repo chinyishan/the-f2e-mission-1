@@ -4,10 +4,8 @@
       <HomeAdvocate />
     </section>
     <HomeNews />
-    <!-- <section class="main-news">
-      <HomeNews />
-    </section> -->
-    <section class="main-policy">
+    <HomePolicy />
+    <!-- <section class="main-policy">
       <div class="container max-container">
         <div class="policy-row">
           <div class="policy-content">
@@ -16,14 +14,14 @@
                 <h2 class="title">政策 No.1</h2>
                 <h3 class="txt">為毛孩子謀福利！推動寵物醫療保障方案</h3>
               </div>
-              <!-- <div class="focus-txt">
+              <div class="focus-txt">
                 <h2 class="title">政策 No.2</h2>
                 <h3>打造休閒天堂！推廣寵物休閒與娛樂場所</h3>
               </div>
               <div class="focus-txt">
                 <h2 class="title">政策 No.3</h2>
                 <h3>推廣寵物飼養教育，讓愛更加專業！</h3>
-              </div> -->
+              </div>
             </div>
             <div class="policy-list">
               <ul>
@@ -81,7 +79,7 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
     <section class="main-donate">
       <HomeDonate />
     </section>
@@ -98,108 +96,87 @@
     position: relative;
     z-index: 2;
   }
-  // .main-news {
+  // .main-policy {
   //   position: relative;
   //   background-color: $primary-default;
-  //   border-radius: calc(20px + 10vw) calc(20px + 10vw) 0 0;
+  //   border-radius: 0 0 calc(20px + 10vw) calc(20px + 10vw);
   //   padding-bottom: 4vw;
+  //   overflow: hidden;
+  //   margin-bottom: 6vw;
 
-  //   &::before {
-  //     content: "";
+  //   .policy-row {
+  //     display: flex;
+  //     justify-content: start;
+  //     align-items: center;
+  //   }
+  //   .policy-content {
+  //     width: 60%;
+  //     .policy-focus {
+  //       margin-bottom: 2vw;
+  //       .focus-txt {
+  //         position: relative;
+  //         padding: 16% 10% 8% 20%;
+  //         .title {
+  //           font-family: "Noto Sans TC", sans-serif;
+  //           font-size: calc(28px + 1vw);
+  //           line-height: calc(28px + 1vw);
+  //           text-align: left;
+  //           margin-bottom: 1vw;
+  //           color: $secondary-dark;
+  //         }
+  //         .txt {
+  //           color: $secondary-dark;
+  //         }
+  //         &:nth-child(1) {
+  //           &::before {
+  //             content: "";
+  //             position: absolute;
+  //             display: block;
+  //             width: 100%;
+  //             height: 100%;
+  //             top: 0%;
+  //             left: 50%;
+  //             transform: translate(-50%, 0%);
+  //             background-image: url("@/assets/images/no-1.png");
+  //             background-repeat: no-repeat;
+  //             background-position: bottom center;
+  //             background-size: contain;
+  //           }
+  //         }
+  //       }
+  //     }
+  //     .policy-list {
+  //       padding: 0% 0% 0% 20%;
+  //       ul {
+  //         li {
+  //           color: $white;
+  //           margin-bottom: 48px;
+  //           strong.list-title {
+  //             display: block;
+  //             font-size: calc(20px + 0.3vw);
+  //             line-height: calc(22px + 0.3vw);
+  //             font-family: "Noto Sans TC", sans-serif;
+  //             font-weight: 700;
+  //             letter-spacing: 2px;
+  //             margin-bottom: 16px;
+  //           }
+  //         }
+  //       }
+  //     }
+  //   }
+  //   .policy-swiper {
+  //     width: 34%;
   //     position: absolute;
-  //     display: block;
-  //     width: 100%;
-  //     height: 50%;
-  //     bottom: 99%;
-  //     left: 50%;
-  //     transform: translate(-50%, 0%);
-  //     background-image: url("@/assets/images/bg-ear-web.png");
-  //     background-repeat: no-repeat;
-  //     background-position: bottom center;
-  //     background-size: 100% auto;
+  //     top: 50%;
+  //     right: 10%;
+  //     transform: translate(0, -50%) rotate(9deg);
+  //     .swiper-policy {
+  //       .swiper-pic {
+  //         padding: 4%;
+  //       }
+  //     }
   //   }
   // }
-  .main-policy {
-    position: relative;
-    background-color: $primary-default;
-    border-radius: 0 0 calc(20px + 10vw) calc(20px + 10vw);
-    padding-bottom: 4vw;
-    overflow: hidden;
-    margin-bottom: 6vw;
-
-    .policy-row {
-      display: flex;
-      justify-content: start;
-      align-items: center;
-    }
-    .policy-content {
-      width: 60%;
-      .policy-focus {
-        margin-bottom: 2vw;
-        .focus-txt {
-          position: relative;
-          padding: 16% 10% 8% 20%;
-          .title {
-            font-family: "Noto Sans TC", sans-serif;
-            font-size: calc(28px + 1vw);
-            line-height: calc(28px + 1vw);
-            text-align: left;
-            margin-bottom: 1vw;
-            color: $secondary-dark;
-          }
-          .txt {
-            color: $secondary-dark;
-          }
-          &:nth-child(1) {
-            &::before {
-              content: "";
-              position: absolute;
-              display: block;
-              width: 100%;
-              height: 100%;
-              top: 0%;
-              left: 50%;
-              transform: translate(-50%, 0%);
-              background-image: url("@/assets/images/no-1.png");
-              background-repeat: no-repeat;
-              background-position: bottom center;
-              background-size: contain;
-            }
-          }
-        }
-      }
-      .policy-list {
-        padding: 0% 0% 0% 20%;
-        ul {
-          li {
-            color: $white;
-            margin-bottom: 48px;
-            strong.list-title {
-              display: block;
-              font-size: calc(20px + 0.3vw);
-              line-height: calc(22px + 0.3vw);
-              font-family: "Noto Sans TC", sans-serif;
-              font-weight: 700;
-              letter-spacing: 2px;
-              margin-bottom: 16px;
-            }
-          }
-        }
-      }
-    }
-    .policy-swiper {
-      width: 34%;
-      position: absolute;
-      top: 50%;
-      right: 10%;
-      transform: translate(0, -50%) rotate(9deg);
-      .swiper-policy {
-        .swiper-pic {
-          padding: 4%;
-        }
-      }
-    }
-  }
   .main-donate {
     position: relative;
     padding-bottom: 5vw;
