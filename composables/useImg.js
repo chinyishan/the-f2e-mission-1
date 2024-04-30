@@ -13,8 +13,21 @@ export const useImg = () => {
     ])
   );
 
+  const globPng = import.meta.glob("~/assets/images/*.png", {
+    eager: true,
+  });
+
+  const imagesPng = Object.fromEntries(
+    Object.entries(globPng).map(([key, value]) => [
+      filename(key),
+      value.default,
+    ])
+  );
+
   return {
     globJpg,
     imagesJpg,
+    globPng,
+    imagesPng,
   };
 };

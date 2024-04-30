@@ -2,64 +2,53 @@
   <section class="section policy">
     <div class="container max-container">
       <div class="policy__row">
-        <div class="policy__col">
-          <ul class="policy__list">
-            <li class="policy__item">
-              <div class="policy__item-bg">
-                <strong class="policy__item-bg__no">政策 No.1</strong>
-                <p class="policy__item-bg__no-text">
-                  為毛孩子謀福利！推動寵物醫療保障方案
+        <div class="policy__col policy__content">
+          <div
+            class="policy__content-wrap"
+            :id="`policy__content-${item.id}`"
+            v-for="item in data.policy"
+            :key="item.id"
+          >
+            <div class="policy__noImg">
+              <img :src="img.imagesPng[item.no_images]" :alt="item.no" />
+            </div>
+            <div class="policy__focus">
+              <h2 class="policy__focus-title">{{ item.no }}</h2>
+              <h3 class="policy__focus-subTitle">
+                {{ item.no_text }}
+              </h3>
+            </div>
+            <ul class="policy__list">
+              <li
+                class="policy__item"
+                v-for="i in item.content"
+                :key="i.number"
+              >
+                <h4 class="policy__item-title">{{ i.number }} {{ i.title }}</h4>
+                <p class="policy__item-text">
+                  {{ i.text }}
                 </p>
-              </div>
-              <h2 class="list__title">01 設立寵物醫療基金</h2>
-              <p>
-                每年撥款新台幣5億元，用於在各大都市建立專屬的寵物公園。根據初步規劃，預計在第一年內，將在全國範圍內建立至少
-                10座寵物公園。
-              </p>
-            </li>
-            <!-- <li>
-              <strong class="list-title">02 提供醫療補助</strong>
-              <p>鼓勵商家提供寵物友善的環境，並為參與的商家提供稅收優惠。</p>
-              <p>預計在政策實施後的首年，將有超過 500 家商家加入此計畫。</p>
-            </li>
-            <li>
-              <strong class="list-title">03 合作動物醫院</strong>
-              <p>與各大寵物社團和組織合作，每年舉辦至少 5 場大型的寵物活動，</p>
-              <p>包括寵物才藝比賽、飼養知識工作坊等。</p>
-            </li> -->
-          </ul>
-          <!-- <div class="policy-focus">
-            <div class="focus-txt">
-              <h2 class="title">政策 No.1</h2>
-              <h3 class="txt">為毛孩子謀福利！推動寵物醫療保障方案</h3>
-            </div>
-            <div class="focus-txt">
-              <h2 class="title">政策 No.2</h2>
-              <h3>打造休閒天堂！推廣寵物休閒與娛樂場所</h3>
-            </div>
-            <div class="focus-txt">
-              <h2 class="title">政策 No.3</h2>
-              <h3>推廣寵物飼養教育，讓愛更加專業！</h3>
-            </div>
-          </div> -->
+              </li>
+            </ul>
+          </div>
         </div>
-        <div class="policy__col">
-          <div class="swiper-policy">
-            <div class="swiper-pic">
+        <div class="policy__col policy__swiper">
+          <div class="policy__swiper-wrap">
+            <div class="policy__swiper-img" id="swiper-img-1">
               <img
                 src="@/assets/images/policy-1.png"
                 alt="01-設立寵物醫療基金"
                 title="01-設立寵物醫療基金"
               />
             </div>
-            <div class="swiper-pic">
+            <div class="policy__swiper-img" id="swiper-img-2">
               <img
                 src="@/assets/images/policy-2.png"
                 alt="02-提供醫療補助"
                 title="02-提供醫療補助"
               />
             </div>
-            <div class="swiper-pic">
+            <div class="policy__swiper-img" id="swiper-img-3">
               <img
                 src="@/assets/images/policy-3.png"
                 alt="03-合作動物醫院"
@@ -79,12 +68,101 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const img = useImg();
-console.log(img);
-
 const { data } = await useFetch(`/api/base`);
-console.log(data);
 
 gsap.registerPlugin(ScrollTrigger);
+
+// onMounted(() => {
+//   ScrollTrigger.create({
+//     trigger: ".news__swiper",
+//     pin: true,
+//     start: "-100 top",
+//     end: "+=2000", //+=1000"
+//     scrub: true,
+//     markers: true,
+//     animation: gsap
+//       .timeline()
+//       .to("#news-item-1", {
+//         opacity: 1,
+//         scale: 1,
+//         duration: 1,
+//         ease: "power1.out",
+//       })
+//       .to(
+//         "#news-img-1",
+//         {
+//           opacity: 1,
+//           duration: 1,
+//           ease: "power1.out",
+//         },
+//         "<"
+//       )
+//       .to("#news-item-1", {
+//         opacity: 0.5,
+//         scale: 0.9,
+//         duration: 1,
+//         delay: 2,
+//         ease: "power1.out",
+//       })
+//       .to(
+//         "#news-img-1",
+//         {
+//           opacity: 0,
+//           duration: 1,
+//           delay: 2,
+//           ease: "power1.out",
+//         },
+//         "<"
+//       )
+//       .to("#news-item-2", {
+//         opacity: 1,
+//         scale: 1,
+//         duration: 1,
+//         ease: "power1.out",
+//       })
+//       .to(
+//         "#news-img-2",
+//         {
+//           opacity: 1,
+//           duration: 1,
+//           ease: "power1.out",
+//         },
+//         "<"
+//       )
+//       .to("#news-item-2", {
+//         opacity: 0.5,
+//         scale: 0.9,
+//         duration: 1,
+//         delay: 2,
+//         ease: "power1.out",
+//       })
+//       .to(
+//         "#news-img-2",
+//         {
+//           opacity: 0,
+//           duration: 1,
+//           delay: 2,
+//           ease: "power1.out",
+//         },
+//         "<"
+//       )
+//       .to("#news-item-3", {
+//         opacity: 1,
+//         scale: 1,
+//         duration: 1,
+//         ease: "power1.out",
+//       })
+//       .to(
+//         "#news-img-3",
+//         {
+//           opacity: 1,
+//           duration: 1,
+//           ease: "power1.out",
+//         },
+//         "<"
+//       ),
+//   });
+// });
 </script>
 
 <style lang="scss" scoped>
@@ -93,80 +171,96 @@ gsap.registerPlugin(ScrollTrigger);
   background-color: $primary-default;
   border-radius: 0 0 calc(20px + 10vw) calc(20px + 10vw);
   padding-bottom: 4vw;
-  overflow: hidden;
   margin-bottom: 6vw;
+  overflow: hidden;
 
-  // .policy-row {
-  //   display: flex;
-  //   justify-content: start;
-  //   align-items: center;
-  // }
-  // .policy-content {
-  //   width: 60%;
-  //   .policy-focus {
-  //     margin-bottom: 2vw;
-  //     .focus-txt {
-  //       position: relative;
-  //       padding: 16% 10% 8% 20%;
-  //       .title {
-  //         font-family: "Noto Sans TC", sans-serif;
-  //         font-size: calc(28px + 1vw);
-  //         line-height: calc(28px + 1vw);
-  //         text-align: left;
-  //         margin-bottom: 1vw;
-  //         color: $secondary-dark;
-  //       }
-  //       .txt {
-  //         color: $secondary-dark;
-  //       }
-  //       &:nth-child(1) {
-  //         &::before {
-  //           content: "";
-  //           position: absolute;
-  //           display: block;
-  //           width: 100%;
-  //           height: 100%;
-  //           top: 0%;
-  //           left: 50%;
-  //           transform: translate(-50%, 0%);
-  //           background-image: url("@/assets/images/no-1.png");
-  //           background-repeat: no-repeat;
-  //           background-position: bottom center;
-  //           background-size: contain;
-  //         }
-  //       }
-  //     }
-  //   }
-  //   .policy-list {
-  //     padding: 0% 0% 0% 20%;
-  //     ul {
-  //       li {
-  //         color: $white;
-  //         margin-bottom: 48px;
-  //         strong.list-title {
-  //           display: block;
-  //           font-size: calc(20px + 0.3vw);
-  //           line-height: calc(22px + 0.3vw);
-  //           font-family: "Noto Sans TC", sans-serif;
-  //           font-weight: 700;
-  //           letter-spacing: 2px;
-  //           margin-bottom: 16px;
-  //         }
-  //       }
-  //     }
-  //   }
-  // }
-  // .policy-swiper {
-  //   width: 34%;
-  //   position: absolute;
-  //   top: 50%;
-  //   right: 10%;
-  //   transform: translate(0, -50%) rotate(9deg);
-  //   .swiper-policy {
-  //     .swiper-pic {
-  //       padding: 4%;
-  //     }
-  //   }
-  // }
+  &__row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 11% 0 4%;
+  }
+  &__content {
+    position: relative;
+    width: 40%;
+    margin: 0 2%;
+
+    #policy__content-2 {
+      position: absolute;
+      width: 100%;
+      height: auto;
+      top: 0;
+      left: 0;
+    }
+    #policy__content-3 {
+      position: absolute;
+      width: 100%;
+      height: auto;
+      top: 0;
+      left: 0;
+    }
+  }
+  &__noImg {
+    position: absolute;
+    width: 140%;
+    height: auto;
+    top: -23%;
+    left: -25%;
+  }
+  &__focus {
+    margin-bottom: 90px;
+
+    &-title {
+      font-family: "Noto Sans TC", sans-serif;
+      font-size: calc(28px + 1vw);
+      line-height: calc(28px + 1vw);
+      text-align: left;
+      margin-bottom: 1vw;
+      color: $secondary-dark;
+    }
+    &-subTitle {
+      color: $secondary-dark;
+    }
+  }
+  &__list {
+    color: $white;
+  }
+  &__item {
+    margin-bottom: 60px;
+
+    &-title {
+      font-family: "Noto Sans TC", sans-serif;
+      font-size: calc(20px + 0.3vw);
+      line-height: calc(22px + 0.3vw);
+      font-weight: 600;
+      letter-spacing: 2px;
+      margin-bottom: 16px;
+    }
+  }
+  &__swiper {
+    position: relative;
+    width: 40%;
+    height: 100%;
+    // overflow: hidden;
+
+    &-wrap {
+      position: absolute;
+      width: 100%;
+      height: auto;
+      top: 0%;
+      right: 0%;
+      transform: translate(0, -20%) rotate(8deg);
+    }
+    &-img {
+      position: relative;
+      margin: 6% 4%;
+      opacity: 0.6;
+
+      &#swiper-img-1 {
+        opacity: 1;
+        right: 50px;
+      }
+    }
+  }
 }
 </style>

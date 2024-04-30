@@ -80,9 +80,7 @@
         </div>
       </div>
     </section> -->
-    <section class="main-donate">
-      <HomeDonate />
-    </section>
+    <HomeDonate />
     <section class="main-suggestion">
       <HomeSuggestion />
     </section>
@@ -177,27 +175,27 @@
   //     }
   //   }
   // }
-  .main-donate {
-    position: relative;
-    padding-bottom: 5vw;
-    margin-bottom: 6vw;
-    overflow: hidden;
+  // .main-donate {
+  //   position: relative;
+  //   padding-bottom: 5vw;
+  //   margin-bottom: 6vw;
+  //   overflow: hidden;
 
-    &::before {
-      content: "";
-      position: absolute;
-      display: block;
-      width: 80%;
-      height: 80%;
-      bottom: -28%;
-      left: 48%;
-      transform: translate(-50%, 0%);
-      background-image: url("@/assets/images/murr-love.png");
-      background-repeat: no-repeat;
-      background-position: bottom center;
-      background-size: contain;
-    }
-  }
+  //   &::before {
+  //     content: "";
+  //     position: absolute;
+  //     display: block;
+  //     width: 80%;
+  //     height: 80%;
+  //     bottom: -28%;
+  //     left: 48%;
+  //     transform: translate(-50%, 0%);
+  //     background-image: url("@/assets/images/murr-love.png");
+  //     background-repeat: no-repeat;
+  //     background-position: bottom center;
+  //     background-size: contain;
+  //   }
+  // }
   .main-suggestion {
     margin-bottom: 6vw;
   }
