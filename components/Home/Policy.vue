@@ -72,97 +72,103 @@ const { data } = await useFetch(`/api/base`);
 
 gsap.registerPlugin(ScrollTrigger);
 
-// onMounted(() => {
-//   ScrollTrigger.create({
-//     trigger: ".news__swiper",
-//     pin: true,
-//     start: "-100 top",
-//     end: "+=2000", //+=1000"
-//     scrub: true,
-//     markers: true,
-//     animation: gsap
-//       .timeline()
-//       .to("#news-item-1", {
-//         opacity: 1,
-//         scale: 1,
-//         duration: 1,
-//         ease: "power1.out",
-//       })
-//       .to(
-//         "#news-img-1",
-//         {
-//           opacity: 1,
-//           duration: 1,
-//           ease: "power1.out",
-//         },
-//         "<"
-//       )
-//       .to("#news-item-1", {
-//         opacity: 0.5,
-//         scale: 0.9,
-//         duration: 1,
-//         delay: 2,
-//         ease: "power1.out",
-//       })
-//       .to(
-//         "#news-img-1",
-//         {
-//           opacity: 0,
-//           duration: 1,
-//           delay: 2,
-//           ease: "power1.out",
-//         },
-//         "<"
-//       )
-//       .to("#news-item-2", {
-//         opacity: 1,
-//         scale: 1,
-//         duration: 1,
-//         ease: "power1.out",
-//       })
-//       .to(
-//         "#news-img-2",
-//         {
-//           opacity: 1,
-//           duration: 1,
-//           ease: "power1.out",
-//         },
-//         "<"
-//       )
-//       .to("#news-item-2", {
-//         opacity: 0.5,
-//         scale: 0.9,
-//         duration: 1,
-//         delay: 2,
-//         ease: "power1.out",
-//       })
-//       .to(
-//         "#news-img-2",
-//         {
-//           opacity: 0,
-//           duration: 1,
-//           delay: 2,
-//           ease: "power1.out",
-//         },
-//         "<"
-//       )
-//       .to("#news-item-3", {
-//         opacity: 1,
-//         scale: 1,
-//         duration: 1,
-//         ease: "power1.out",
-//       })
-//       .to(
-//         "#news-img-3",
-//         {
-//           opacity: 1,
-//           duration: 1,
-//           ease: "power1.out",
-//         },
-//         "<"
-//       ),
-//   });
-// });
+onMounted(() => {
+  ScrollTrigger.create({
+    trigger: ".policy__row",
+    pin: true,
+    start: "top top",
+    end: "+=2000", //+=1000"
+    scrub: true,
+    markers: true,
+    animation: gsap
+      .timeline()
+      .to("#policy__content-1", {
+        left: 50,
+        opacity: 0,
+        duration: 0.5,
+        ease: "power1.out",
+      })
+      .to("#policy__content-2", {
+        left: 0,
+        opacity: 1,
+        duration: 0.5,
+        ease: "power1.out",
+      })
+      .to(
+        ".policy__swiper-wrap",
+        {
+          bottom: -230,
+          opacity: 1,
+          duration: 0.5,
+          ease: "power1.out",
+        },
+        "<"
+      )
+      .to(
+        "#swiper-img-1",
+        {
+          right: 0,
+          opacity: 0.5,
+          duration: 0.5,
+          ease: "power1.out",
+        },
+        "<"
+      )
+      .to(
+        "#swiper-img-2",
+        {
+          right: 50,
+          opacity: 1,
+          duration: 0.5,
+          ease: "power1.out",
+        },
+        "<"
+      )
+      .to("#policy__content-2", {
+        left: 50,
+        opacity: 0,
+        duration: 0.5,
+        delay: 1,
+        ease: "power1.out",
+      })
+      .to("#policy__content-3", {
+        left: 0,
+        opacity: 1,
+        duration: 0.5,
+        ease: "power1.out",
+      })
+      .to(
+        ".policy__swiper-wrap",
+        {
+          bottom: 50,
+          opacity: 1,
+          duration: 0.5,
+          ease: "power1.out",
+        },
+        "<"
+      )
+      .to(
+        "#swiper-img-2",
+        {
+          right: 0,
+          opacity: 0.5,
+          duration: 0.5,
+          ease: "power1.out",
+        },
+        "<"
+      )
+      .to(
+        "#swiper-img-3",
+        {
+          right: 50,
+          opacity: 1,
+          duration: 0.5,
+          ease: "power1.out",
+        },
+        "<"
+      ),
+  });
+});
 </script>
 
 <style lang="scss" scoped>
@@ -176,36 +182,45 @@ gsap.registerPlugin(ScrollTrigger);
 
   &__row {
     display: flex;
-    justify-content: center;
+    // justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
-    padding: 11% 0 4%;
+    padding: 11% 0 7%;
   }
   &__content {
     position: relative;
-    width: 40%;
-    margin: 0 2%;
+    width: 42%;
+    margin: 0 4%;
+
+    #policy__content-1 {
+      position: relative;
+      // opacity: 0;
+      // left: -50px;
+    }
 
     #policy__content-2 {
       position: absolute;
       width: 100%;
       height: auto;
       top: 0;
-      left: 0;
+      left: -50px;
+      opacity: 0;
     }
     #policy__content-3 {
       position: absolute;
       width: 100%;
       height: auto;
       top: 0;
-      left: 0;
+      left: -50px;
+      opacity: 0;
     }
   }
   &__noImg {
     position: absolute;
-    width: 140%;
+    width: 130%;
     height: auto;
     top: -23%;
-    left: -25%;
+    left: -13%;
   }
   &__focus {
     margin-bottom: 90px;
@@ -236,10 +251,13 @@ gsap.registerPlugin(ScrollTrigger);
       letter-spacing: 2px;
       margin-bottom: 16px;
     }
+    &:last-child {
+      margin-bottom: 0px;
+    }
   }
   &__swiper {
     position: relative;
-    width: 40%;
+    width: 38%;
     height: 100%;
     // overflow: hidden;
 
@@ -247,9 +265,13 @@ gsap.registerPlugin(ScrollTrigger);
       position: absolute;
       width: 100%;
       height: auto;
-      top: 0%;
+      // top: 50%;
+      // top: 0%;
       right: 0%;
-      transform: translate(0, -20%) rotate(8deg);
+      bottom: -580px;
+      transform: rotate(8deg);
+      // translate(0%, 0%)
+      opacity: 1;
     }
     &-img {
       position: relative;

@@ -180,7 +180,7 @@ onMounted(() => {
   &__title {
     color: $white;
     text-align: center;
-    // padding-bottom: 2vw;
+    padding-bottom: 2vw;
   }
   &__row {
     display: flex;
