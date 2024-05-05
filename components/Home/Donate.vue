@@ -2,7 +2,7 @@
   <section class="section donate">
     <div class="container">
       <h2 class="donate__lumpTitle">
-        您的小筆捐款，是每隻毛孩未來的大大動力！
+        您的小筆捐款，<strong>是每隻毛孩未來的大大動力！</strong>
       </h2>
       <p class="donate__lumpSum">目前贊助總金額 : NT$ 987,655,873</p>
       <ul class="donate__list">
@@ -33,38 +33,101 @@ const { data } = await useFetch(`/api/base`);
 <style lang="scss" scoped>
 .donate {
   position: relative;
-  padding-bottom: 5vw;
-  margin-bottom: 6vw;
+  padding-bottom: 72px;
+  margin-bottom: 100px;
   overflow: hidden;
 
+  &::before {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 80%;
+    height: 80%;
+    bottom: -28%;
+    left: 48%;
+    transform: translate(-50%, 0%);
+    background-image: url("@/assets/images/murr-love.png");
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    background-size: contain;
+    z-index: -1;
+  }
+
+  @include pad-768() {
+    padding-bottom: 110px;
+    margin-bottom: 40px;
+    overflow: visible;
+
+    &::before {
+      content: "";
+      position: absolute;
+      display: block;
+      width: 100%;
+      height: 100%;
+      bottom: -17%;
+      left: 50%;
+      transform: translate(-50%, 0%);
+    }
+  }
+
   .container {
+    width: min(1200px, 82%);
     position: relative;
-    z-index: 3;
+    z-index: 2;
   }
   &__lumpTitle {
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 60px;
     text-align: center;
     color: $primary-default;
-    margin-bottom: 2vw;
+    margin-bottom: 20px;
+
+    strong {
+      display: inline-block;
+    }
+
+    @include pad-768() {
+      font-size: 20px;
+      line-height: 32px;
+      margin-bottom: 12px;
+
+      strong {
+        display: block;
+      }
+    }
   }
   &__lumpSum {
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 42px;
+    font-family: "Noto Sans TC", sans-serif;
     text-align: center;
     color: $primary-light;
-    font-size: calc(20px + 0.3vw);
-    line-height: calc(22px + 0.3vw);
-    font-family: "Noto Sans TC", sans-serif;
-    font-weight: 700;
     letter-spacing: 1px;
-    margin-bottom: 4vw;
+    margin-bottom: 60px;
+
+    @include pad-768() {
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 26px;
+      margin-bottom: 40px;
+    }
   }
   &__list {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 8vw;
+    margin-bottom: 120px;
+
+    @include pad-768() {
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
   }
   &__item {
     width: 21%;
-    margin: 0 2%;
+    margin: 2%;
     padding: 3% 2%;
     background-color: $white;
     border-radius: 20px;
@@ -72,55 +135,85 @@ const { data } = await useFetch(`/api/base`);
     box-shadow: 6px 8px 0 0 $secondary-default;
     text-align: center;
 
+    @include pad-768() {
+      width: 86%;
+      padding: 32px 16px;
+      margin: 8%;
+    }
+
     &-name {
+      letter-spacing: 1px;
+      font-weight: 700;
       text-align: center;
       color: $primary-default;
-      margin-bottom: 1.4vw;
+      margin-bottom: 16px;
+
+      @include pad-768() {
+        font-size: 26px;
+        line-height: 42px;
+      }
     }
     &-price {
       color: $primary-light;
-      text-align: center;
       font-size: calc(12px + 0.3vw);
       line-height: calc(12px + 0.3vw);
       font-family: "Noto Sans TC", sans-serif;
       font-weight: 500;
       letter-spacing: 1px;
-      margin-bottom: 2.6vw;
+      text-align: center;
+      margin-bottom: 40px;
+
+      @include pad-768() {
+        font-size: 20px;
+        line-height: 32px;
+      }
     }
     &-btn {
-      margin-bottom: 1vw;
+      margin-bottom: 4px;
     }
     &-people {
       display: block;
       color: $primary-light;
       font-size: calc(12px + 0.2vw);
+      font-weight: 500;
       line-height: calc(18px + 0.2vw);
       font-family: "Noto Sans TC", sans-serif;
-      font-weight: 500;
       letter-spacing: 1px;
+
+      @include pad-768() {
+        font-size: 16px;
+        line-height: 25px;
+      }
     }
   }
   &__custom {
     text-align: center;
 
     &-subTile {
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 42px;
       color: $primary-default;
-      margin-bottom: 1.4vw;
+      margin-bottom: 16px;
     }
     &-currently {
       color: $primary-light;
-      text-align: center;
-      font-size: calc(16px + 0.3vw);
-      line-height: calc(16px + 0.3vw);
-      font-family: "Noto Sans TC", sans-serif;
-      font-weight: 500;
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 25px;
       letter-spacing: 1px;
-      margin-bottom: 1.6vw;
+      font-family: "Noto Sans TC", sans-serif;
+      text-align: center;
+      margin-bottom: 16px;
     }
     &-form {
       position: relative;
       width: 34%;
-      margin: 0 auto 2vw;
+      margin: 0 auto 32px;
+
+      @include pad-768() {
+        width: 90%;
+      }
     }
     &-label {
       position: absolute;
@@ -148,20 +241,6 @@ const { data } = await useFetch(`/api/base`);
         outline: none;
       }
     }
-  }
-  &::before {
-    content: "";
-    position: absolute;
-    display: block;
-    width: 80%;
-    height: 80%;
-    bottom: -28%;
-    left: 48%;
-    transform: translate(-50%, 0%);
-    background-image: url("@/assets/images/murr-love.png");
-    background-repeat: no-repeat;
-    background-position: bottom center;
-    background-size: contain;
   }
 }
 </style>

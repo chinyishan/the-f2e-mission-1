@@ -52,10 +52,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const img = useImg();
-console.log(img);
-
 const { data } = await useFetch(`/api/base`);
-console.log(data);
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -63,10 +60,10 @@ onMounted(() => {
   ScrollTrigger.create({
     trigger: ".news__swiper",
     pin: true,
-    start: "-100 top",
+    start: "-200 top",
     end: "+=2000", //+=1000"
     scrub: true,
-    markers: true,
+    // markers: true,
     animation: gsap
       .timeline()
       .to("#news-item-1", {
@@ -171,6 +168,7 @@ onMounted(() => {
   background-color: $primary-default;
   border-radius: calc(20px + 10vw) calc(20px + 10vw) 0 0;
   padding-bottom: 4vw;
+  z-index: 2;
 
   &__box {
     width: 32%;

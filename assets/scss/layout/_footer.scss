@@ -1,4 +1,63 @@
-.main-footer {
+.footer {
+  background-color: $primary-default;
+  padding-top: 40px;
+
+  .container {
+    width: min(1200px, 94%);
+    margin: 0 auto;
+    // padding: 4% 0;
+  }
+
+  &__row {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    @include pad-768() {
+      justify-content: flex-start;
+      flex-wrap: wrap;
+    }
+  }
+  &__col {
+    padding: 0 10px;
+    height: auto;
+    margin-bottom: 20px;
+
+    &-title {
+      display: block;
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 24px;
+      text-align: left;
+      letter-spacing: 1px;
+      font-family: "Noto Sans TC", sans-serif;
+      color: $secondary-default;
+      margin-bottom: 10px;
+    }
+    &-item {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 25px;
+      letter-spacing: 1px;
+      text-align: left;
+      font-family: "Noto Sans TC", sans-serif;
+      color: $white;
+      margin-bottom: 10px;
+    }
+    &-link {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      padding: 10px 0 20px;
+
+      a {
+        margin-right: 10px;
+      }
+    }
+  }
+}
+
+.footer {
   background-color: $primary-default;
 
   .container {

@@ -76,10 +76,10 @@ onMounted(() => {
   ScrollTrigger.create({
     trigger: ".policy__row",
     pin: true,
-    start: "top top",
+    start: "-100 top",
     end: "+=2000", //+=1000"
     scrub: true,
-    markers: true,
+    // markers: true,
     animation: gsap
       .timeline()
       .to("#policy__content-1", {
