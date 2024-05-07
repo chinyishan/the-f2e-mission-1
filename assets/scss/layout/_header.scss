@@ -1,21 +1,21 @@
-.main-header {
+.header {
   position: fixed;
   width: 100%;
-  margin: 0 auto;
   top: 4%;
   z-index: 100;
+  margin: 0 auto;
 
-  .header-title {
+  &__title {
     width: 1px;
     height: 100%;
     position: absolute;
     overflow: hidden;
   }
-  .nav-web {
+  &__nav {
     position: relative;
-    width: min(1000px, 93%);
+    width: min(1000px, 90%);
     height: 100%;
-    padding: 1% 3%;
+    padding: 10px 20px;
     margin: 0 auto;
     background-color: $white;
     border-radius: 50px;
@@ -37,43 +37,101 @@
       background-position: top center;
       background-repeat: no-repeat;
     }
-    h2 {
-      font-family: "Gaegu", sans-serif;
-      font-size: calc(16px + 1.2vw);
-      color: $primary-default;
-      display: block;
-    }
-    .nav-group {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      .nav-list {
-        display: flex;
-        justify-content: center;
-        align-items: center;
 
-        li {
-          a {
-            padding: 10px;
-            display: block;
-            font-size: 16px;
-            color: $primary-default;
-            font-family: "Noto Sans TC", sans-serif;
-            font-weight: 600;
-            white-space: nowrap;
-          }
+    @include pad-768() {
+      border: 4px solid $secondary-light;
+      box-shadow: 0 0 0 0 $secondary-default;
+
+      &::before {
+        left: 6%;
+      }
+    }
+  }
+  &__logo {
+    font-family: "Gaegu", sans-serif;
+    font-size: calc(16px + 1.2vw);
+    color: $primary-default;
+    display: block;
+  }
+  &__group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $white;
+
+    @include pad-768() {
+      position: absolute;
+      top: 0%;
+      left: 0%;
+      width: 100vw;
+      height: 100vh;
+    }
+  }
+  &__list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include pad-768() {
+      flex-direction: column;
+    }
+  }
+  &__item {
+    a {
+      padding: 10px;
+      display: block;
+      font-size: 16px;
+      color: $primary-default;
+      font-family: "Noto Sans TC", sans-serif;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+  }
+  &__links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 30%;
+
+    a {
+      display: inline-block;
+      margin: 0 3%;
+    }
+  }
+  &__hamburger {
+    display: none;
+    cursor: pointer;
+    background-color: $white;
+    // padding: 8px 4px;
+    // width: 40px;
+    // height: 40px;
+
+    .line {
+      // width: 30px;
+      width: 30px;
+      height: 2px;
+      display: block;
+      border-radius: 50px;
+      background-color: $primary-default;
+      margin: 6px auto;
+      transition: all 0.3s ease-in-out;
+    }
+    &.openClose {
+      .line {
+        &:nth-child(2) {
+          opacity: 0;
+        }
+        &:nth-child(1) {
+          transform: translateY(5px) rotate(45deg);
+        }
+        &:nth-child(3) {
+          transform: translateY(-5px) rotate(-45deg);
         }
       }
-      .nav-link {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 30%;
-        a {
-          display: inline-block;
-          margin: 0 3%;
-        }
-      }
+    }
+
+    @include pad-768() {
+      display: block;
     }
   }
 }
