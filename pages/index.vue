@@ -1,10 +1,10 @@
 <template>
   <div class="app-container">
-    <HomeAdvocate />
+    <!-- <HomeAdvocate />
     <HomeNews />
     <HomePolicy />
     <HomeDonate />
-    <HomeSuggest />
+    <HomeSuggest /> -->
   </div>
 </template>
 <script setup></script>

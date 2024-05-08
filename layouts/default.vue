@@ -1,7 +1,7 @@
 <template>
   <div class="layouts-default">
     <Header />
-    <Banner />
+    <!-- <Banner /> -->
     <NuxtPage />
     <Footer />
   </div>
