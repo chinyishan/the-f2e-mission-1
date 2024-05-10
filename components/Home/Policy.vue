@@ -91,8 +91,8 @@ onMounted(() => {
           id: "policyRow",
           trigger: ".policy__row",
           pin: true,
-          start: isWeb ? "-100 top" : "-200 top", // isWeb ? "-100 top" : "-300 top"
-          end: "+=2000", //+=1000"
+          start: isWeb ? "-100 top" : "-300 top",
+          end: "+=1800", //+=1000"
           scrub: 0.5,
           markers: true,
           animation: gsap
@@ -100,22 +100,26 @@ onMounted(() => {
             .to("#policy__content-1", {
               left: 50,
               opacity: 0,
-              duration: 0.5,
-              delay: 2,
+              duration: 1,
               ease: "power1.out",
-            })
-            .to("#policy__content-2", {
-              left: 0,
-              opacity: 1,
-              duration: 0.5,
-              ease: "power1.out",
+              delay: 1,
             })
             .to(
               ".policy__swiperPic-wrap",
               {
-                y: -230,
+                y: isWeb ? -230 : -200,
                 opacity: 1,
-                duration: 0.5,
+                duration: 1,
+                ease: "power1.out",
+              },
+              "<"
+            )
+            .to(
+              "#policy__content-2",
+              {
+                left: 0,
+                opacity: 1,
+                duration: 1,
                 ease: "power1.out",
               },
               "<"
@@ -135,7 +139,7 @@ onMounted(() => {
               {
                 right: 50,
                 opacity: 1,
-                duration: 0.5,
+                duration: 1,
                 ease: "power1.out",
               },
               "<"
@@ -143,22 +147,26 @@ onMounted(() => {
             .to("#policy__content-2", {
               left: 50,
               opacity: 0,
-              duration: 0.5,
-              delay: 2,
+              duration: 1,
               ease: "power1.out",
-            })
-            .to("#policy__content-3", {
-              left: 0,
-              opacity: 1,
-              duration: 0.5,
-              ease: "power1.out",
+              delay: 1,
             })
             .to(
               ".policy__swiperPic-wrap",
               {
-                y: -530,
+                y: isWeb ? -630 : -430,
                 opacity: 1,
-                duration: 0.5,
+                duration: 1,
+                ease: "power1.out",
+              },
+              "<"
+            )
+            .to(
+              "#policy__content-3",
+              {
+                left: 0,
+                opacity: 1,
+                duration: 1,
                 ease: "power1.out",
               },
               "<"
@@ -168,7 +176,7 @@ onMounted(() => {
               {
                 right: 0,
                 opacity: 0.5,
-                duration: 0.5,
+                duration: 1,
                 ease: "power1.out",
               },
               "<"
@@ -178,11 +186,14 @@ onMounted(() => {
               {
                 right: 50,
                 opacity: 1,
-                duration: 0.5,
+                duration: 1,
                 ease: "power1.out",
               },
               "<"
-            ),
+            )
+            .to("#swiper-img-3", {
+              delay: 2,
+            }),
         });
       }
     }
@@ -194,13 +205,17 @@ onMounted(() => {
 .policy {
   position: relative;
   background-color: $primary-default;
-  border-radius: 0 0 calc(20px + 10vw) calc(20px + 10vw);
+  border-radius: 0 0 calc(40px + 8vw) calc(40px + 8vw);
   padding-bottom: 4vw;
   margin-bottom: 6vw;
   overflow: hidden;
 
+  @include pad-768() {
+    border-radius: 0 0 40px 40px;
+  }
+
   &__container {
-    width: min(1400px, 96%);
+    width: min(1400px, 90%);
   }
 
   &__row {
@@ -212,17 +227,29 @@ onMounted(() => {
     // overflow: hidden;
 
     @include pad-1024() {
-      padding: 18% 0 7%;
+      padding: 18% 0 12%;
+    }
+    @include pad-768() {
+      padding: 10% 0 10%;
+      flex-direction: column;
     }
   }
   &__col {
     box-sizing: border-box;
     margin: 0 4%;
+
+    @include pad-768() {
+      width: 100%;
+    }
   }
   &__content {
     position: relative;
     width: 42%;
     // margin: 0 4%;
+
+    @include pad-768() {
+      width: 100%;
+    }
 
     #policy__content-1 {
       position: relative;
@@ -232,17 +259,31 @@ onMounted(() => {
       position: absolute;
       width: 100%;
       height: auto;
-      top: 0;
+      top: 0px;
       left: -50px;
       opacity: 0;
+
+      // @include pad-768() {
+      //   position: relative;
+      //   top: 0px;
+      //   left: 0px;
+      //   opacity: 1;
+      // }
     }
     #policy__content-3 {
       position: absolute;
       width: 100%;
       height: auto;
-      top: 0;
+      top: 0px;
       left: -50px;
       opacity: 0;
+
+      // @include pad-768() {
+      //   position: relative;
+      //   top: 0px;
+      //   left: 0px;
+      //   opacity: 1;
+      // }
     }
   }
   &__noImg {
@@ -251,6 +292,12 @@ onMounted(() => {
     height: auto;
     top: -23%;
     left: -13%;
+
+    @include pad-768() {
+      top: 0%;
+      left: 0%;
+      width: 100%;
+    }
   }
   &__focus {
     margin-bottom: 90px;

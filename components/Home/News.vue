@@ -213,7 +213,7 @@ onMounted(() => {
   }
 
   &__container {
-    width: min(1200px, 97%);
+    width: min(1200px, 90%);
   }
 
   &__box {
