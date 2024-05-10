@@ -1,6 +1,6 @@
 <template>
   <section class="section policy">
-    <div class="container max-container">
+    <div class="container policy__container">
       <div class="policy__row">
         <div class="policy__col policy__content">
           <div
@@ -32,23 +32,23 @@
             </ul>
           </div>
         </div>
-        <div class="policy__col policy__swiper">
-          <div class="policy__swiper-wrap">
-            <div class="policy__swiper-img" id="swiper-img-1">
+        <div class="policy__col policy__swiperPic">
+          <div class="policy__swiperPic-wrap">
+            <div class="policy__swiperPic-img" id="swiper-img-1">
               <img
                 src="@/assets/images/policy-1.png"
                 alt="01-設立寵物醫療基金"
                 title="01-設立寵物醫療基金"
               />
             </div>
-            <div class="policy__swiper-img" id="swiper-img-2">
+            <div class="policy__swiperPic-img" id="swiper-img-2">
               <img
                 src="@/assets/images/policy-2.png"
                 alt="02-提供醫療補助"
                 title="02-提供醫療補助"
               />
             </div>
-            <div class="policy__swiper-img" id="swiper-img-3">
+            <div class="policy__swiperPic-img" id="swiper-img-3">
               <img
                 src="@/assets/images/policy-3.png"
                 alt="03-合作動物醫院"
@@ -73,101 +73,120 @@ const { data } = await useFetch(`/api/base`);
 gsap.registerPlugin(ScrollTrigger);
 
 onMounted(() => {
-  ScrollTrigger.create({
-    trigger: ".policy__row",
-    pin: true,
-    start: "-100 top",
-    end: "+=2000", //+=1000"
-    scrub: true,
-    // markers: true,
-    animation: gsap
-      .timeline()
-      .to("#policy__content-1", {
-        left: 50,
-        opacity: 0,
-        duration: 0.5,
-        ease: "power1.out",
-      })
-      .to("#policy__content-2", {
-        left: 0,
-        opacity: 1,
-        duration: 0.5,
-        ease: "power1.out",
-      })
-      .to(
-        ".policy__swiper-wrap",
-        {
-          bottom: -230,
-          opacity: 1,
-          duration: 0.5,
-          ease: "power1.out",
-        },
-        "<"
-      )
-      .to(
-        "#swiper-img-1",
-        {
-          right: 0,
-          opacity: 0.5,
-          duration: 0.5,
-          ease: "power1.out",
-        },
-        "<"
-      )
-      .to(
-        "#swiper-img-2",
-        {
-          right: 50,
-          opacity: 1,
-          duration: 0.5,
-          ease: "power1.out",
-        },
-        "<"
-      )
-      .to("#policy__content-2", {
-        left: 50,
-        opacity: 0,
-        duration: 0.5,
-        delay: 1,
-        ease: "power1.out",
-      })
-      .to("#policy__content-3", {
-        left: 0,
-        opacity: 1,
-        duration: 0.5,
-        ease: "power1.out",
-      })
-      .to(
-        ".policy__swiper-wrap",
-        {
-          bottom: 50,
-          opacity: 1,
-          duration: 0.5,
-          ease: "power1.out",
-        },
-        "<"
-      )
-      .to(
-        "#swiper-img-2",
-        {
-          right: 0,
-          opacity: 0.5,
-          duration: 0.5,
-          ease: "power1.out",
-        },
-        "<"
-      )
-      .to(
-        "#swiper-img-3",
-        {
-          right: 50,
-          opacity: 1,
-          duration: 0.5,
-          ease: "power1.out",
-        },
-        "<"
-      ),
-  });
+  let mm = gsap.matchMedia();
+
+  mm.add(
+    {
+      isMobile: "(max-width: 768px)",
+      isPad: "(min-width: 769px)",
+      isWeb: "(min-width: 1025px)",
+    },
+    (context) => {
+      let { isMobile, isPad, isWeb } = context.conditions;
+
+      if (isMobile) {
+        ScrollTrigger.getById("policyRow").kill();
+      } else {
+        ScrollTrigger.create({
+          id: "policyRow",
+          trigger: ".policy__row",
+          pin: true,
+          start: isWeb ? "-100 top" : "-200 top", // isWeb ? "-100 top" : "-300 top"
+          end: "+=2000", //+=1000"
+          scrub: 0.5,
+          markers: true,
+          animation: gsap
+            .timeline()
+            .to("#policy__content-1", {
+              left: 50,
+              opacity: 0,
+              duration: 0.5,
+              delay: 2,
+              ease: "power1.out",
+            })
+            .to("#policy__content-2", {
+              left: 0,
+              opacity: 1,
+              duration: 0.5,
+              ease: "power1.out",
+            })
+            .to(
+              ".policy__swiperPic-wrap",
+              {
+                y: -230,
+                opacity: 1,
+                duration: 0.5,
+                ease: "power1.out",
+              },
+              "<"
+            )
+            .to(
+              "#swiper-img-1",
+              {
+                right: 0,
+                opacity: 0.5,
+                duration: 0.5,
+                ease: "power1.out",
+              },
+              "<"
+            )
+            .to(
+              "#swiper-img-2",
+              {
+                right: 50,
+                opacity: 1,
+                duration: 0.5,
+                ease: "power1.out",
+              },
+              "<"
+            )
+            .to("#policy__content-2", {
+              left: 50,
+              opacity: 0,
+              duration: 0.5,
+              delay: 2,
+              ease: "power1.out",
+            })
+            .to("#policy__content-3", {
+              left: 0,
+              opacity: 1,
+              duration: 0.5,
+              ease: "power1.out",
+            })
+            .to(
+              ".policy__swiperPic-wrap",
+              {
+                y: -530,
+                opacity: 1,
+                duration: 0.5,
+                ease: "power1.out",
+              },
+              "<"
+            )
+            .to(
+              "#swiper-img-2",
+              {
+                right: 0,
+                opacity: 0.5,
+                duration: 0.5,
+                ease: "power1.out",
+              },
+              "<"
+            )
+            .to(
+              "#swiper-img-3",
+              {
+                right: 50,
+                opacity: 1,
+                duration: 0.5,
+                ease: "power1.out",
+              },
+              "<"
+            ),
+        });
+      }
+    }
+  );
 });
 </script>
 
@@ -180,22 +199,33 @@ onMounted(() => {
   margin-bottom: 6vw;
   overflow: hidden;
 
+  &__container {
+    width: min(1400px, 96%);
+  }
+
   &__row {
+    box-sizing: border-box;
     display: flex;
-    // justify-content: center;
     justify-content: space-evenly;
     align-items: center;
     padding: 11% 0 7%;
+    // overflow: hidden;
+
+    @include pad-1024() {
+      padding: 18% 0 7%;
+    }
+  }
+  &__col {
+    box-sizing: border-box;
+    margin: 0 4%;
   }
   &__content {
     position: relative;
     width: 42%;
-    margin: 0 4%;
+    // margin: 0 4%;
 
     #policy__content-1 {
       position: relative;
-      // opacity: 0;
-      // left: -50px;
     }
 
     #policy__content-2 {
@@ -238,9 +268,11 @@ onMounted(() => {
     }
   }
   &__list {
+    box-sizing: border-box;
     color: $white;
   }
   &__item {
+    box-sizing: border-box;
     margin-bottom: 60px;
 
     &-title {
@@ -255,7 +287,7 @@ onMounted(() => {
       margin-bottom: 0px;
     }
   }
-  &__swiper {
+  &__swiperPic {
     position: relative;
     width: 38%;
     height: 100%;
@@ -268,10 +300,15 @@ onMounted(() => {
       // top: 50%;
       // top: 0%;
       right: 0%;
-      bottom: -580px;
+      // bottom: -580px;
+      bottom: -100%;
       transform: rotate(8deg);
       // translate(0%, 0%)
       opacity: 1;
+
+      @include pad-1024() {
+        bottom: -50%;
+      }
     }
     &-img {
       position: relative;

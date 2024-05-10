@@ -68,95 +68,114 @@ const { data } = await useFetch(`/api/base`);
 gsap.registerPlugin(ScrollTrigger);
 
 onMounted(() => {
-  ScrollTrigger.create({
-    trigger: ".news__swiper",
-    pin: true,
-    start: "-120 top",
-    end: "+=2000", //+=1000"
-    scrub: true,
-    // markers: true,
-    animation: gsap
-      .timeline()
-      .to("#news-item-1", {
-        opacity: 1,
-        scale: 1,
-        duration: 1,
-        ease: "power1.out",
-      })
-      .to(
-        "#news-img-1",
-        {
-          opacity: 1,
-          duration: 1,
-          ease: "power1.out",
-        },
-        "<"
-      )
-      .to("#news-item-1", {
-        opacity: 0.5,
-        scale: 0.9,
-        duration: 1,
-        delay: 2,
-        ease: "power1.out",
-      })
-      .to(
-        "#news-img-1",
-        {
-          opacity: 0,
-          duration: 1,
-          delay: 2,
-          ease: "power1.out",
-        },
-        "<"
-      )
-      .to("#news-item-2", {
-        opacity: 1,
-        scale: 1,
-        duration: 1,
-        ease: "power1.out",
-      })
-      .to(
-        "#news-img-2",
-        {
-          opacity: 1,
-          duration: 1,
-          ease: "power1.out",
-        },
-        "<"
-      )
-      .to("#news-item-2", {
-        opacity: 0.5,
-        scale: 0.9,
-        duration: 1,
-        delay: 2,
-        ease: "power1.out",
-      })
-      .to(
-        "#news-img-2",
-        {
-          opacity: 0,
-          duration: 1,
-          delay: 2,
-          ease: "power1.out",
-        },
-        "<"
-      )
-      .to("#news-item-3", {
-        opacity: 1,
-        scale: 1,
-        duration: 1,
-        ease: "power1.out",
-      })
-      .to(
-        "#news-img-3",
-        {
-          opacity: 1,
-          duration: 1,
-          ease: "power1.out",
-        },
-        "<"
-      ),
-  });
+  let mm = gsap.matchMedia();
+
+  mm.add(
+    {
+      isMobile: "(max-width: 768px)",
+      isPad: "(min-width: 769px)",
+      isWeb: "(min-width: 1025px)",
+    },
+    (context) => {
+      let { isMobile, isPad, isWeb } = context.conditions;
+
+      if (isMobile) {
+        // 停止觸發器
+        ScrollTrigger.getById("newsSwiper").kill();
+      } else {
+        ScrollTrigger.create({
+          id: "newsSwiper", //ScrollTrigger 的識別符字串id
+          trigger: ".news__swiper",
+          pin: true,
+          start: isWeb ? "-120 top" : "-280 top",
+          end: "+=1600", //+=2000
+          scrub: true,
+          // markers: true,
+          animation: gsap
+            .timeline()
+            .to("#news-item-1", {
+              opacity: 1,
+              scale: 1,
+              duration: 0.5,
+              ease: "power1.out",
+            })
+            .to(
+              "#news-img-1",
+              {
+                opacity: 1,
+                duration: 0.5,
+                ease: "power1.out",
+              },
+              "<"
+            )
+            .to("#news-item-1", {
+              opacity: 0.5,
+              scale: 0.9,
+              duration: 0.5,
+              delay: 2,
+              ease: "power1.out",
+            })
+            .to(
+              "#news-img-1",
+              {
+                opacity: 0,
+                duration: 0.5,
+                delay: 2,
+                ease: "power1.out",
+              },
+              "<"
+            )
+            .to("#news-item-2", {
+              opacity: 1,
+              scale: 1,
+              duration: 0.5,
+              ease: "power1.out",
+            })
+            .to(
+              "#news-img-2",
+              {
+                opacity: 1,
+                duration: 0.5,
+                ease: "bounce.out",
+              },
+              "<"
+            )
+            .to("#news-item-2", {
+              opacity: 0.5,
+              scale: 0.9,
+              duration: 0.5,
+              delay: 2,
+              ease: "power1.out",
+            })
+            .to(
+              "#news-img-2",
+              {
+                opacity: 0,
+                duration: 0.5,
+                delay: 2,
+                ease: "power1.out",
+              },
+              "<"
+            )
+            .to("#news-item-3", {
+              opacity: 1,
+              scale: 1,
+              duration: 0.5,
+              ease: "power1.out",
+            })
+            .to(
+              "#news-img-3",
+              {
+                opacity: 1,
+                duration: 0.5,
+                ease: "bounce.out",
+              },
+              "<"
+            ),
+        });
+      }
+    }
+  );
 });
 </script>
 
@@ -193,9 +212,9 @@ onMounted(() => {
     }
   }
 
-  // &__container {
-  //   width: min(1200px, 97%);
-  // }
+  &__container {
+    width: min(1200px, 97%);
+  }
 
   &__box {
     width: 32%;

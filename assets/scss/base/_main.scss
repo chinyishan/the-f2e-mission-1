@@ -19,6 +19,7 @@ img {
 }
 .app-container {
   .container {
+    box-sizing: border-box;
     width: min(1200px, 90%);
     margin: 0 auto;
 

@@ -76,481 +76,165 @@ import { onMounted } from "vue";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+/** 設置GSAP動畫*/
 gsap.registerPlugin(ScrollTrigger);
 
 onMounted(() => {
   let mm = gsap.matchMedia();
 
-  mm.add("(min-width: 1280px)", () => {
-    ScrollTrigger.create({
-      trigger: ".banner",
-      pin: true,
-      start: "top top",
-      end: "+=600", //+=500
-      // markers: true,
-    });
+  mm.add(
+    {
+      // 設定斷點
+      isMobile: "(max-width: 768px)", // 畫面不大於 768px 執行
+      isPad: "(min-width: 769px)", // 畫面不小於 769px 執行
+      isWeb: "(min-width: 1025px)", // 畫面不小於 1025px 執行
+      // isNotebook: "(min-width: 1440px)", // 畫面不小於 1440px 執行
+      // isComputer: "(min-width: 1600px)", // 畫面不小於 1600px 執行
+    },
+    (context) => {
+      // context.conditions 對於上面定義的每個條件都有一個布林屬性，指示它是否符合。
+      let { isMobile, isPad, isWeb } = context.conditions;
 
-    let bannerItems = gsap.timeline();
-
-    bannerItems
-      .to(".banner__list", {
-        y: "-56%", //x、y 移動位置
-        duration: 2, //秒數
-        ease: "none", //動畫效果
-        scrollTrigger: {
-          trigger: ".banner__list", //觸發得物件
-          start: "top top", // (物件開始位置, 卷軸開始位置) top center bottom px
-          end: "+=200 top", //(物件結束位置, 卷軸結束位置) , 也可以設卷軸捲動多少結束動畫(+=200)
-          pin: true, // 物件執行完動畫會跟著卷軸走，類似 fixed-top
-          scrub: 1, // 是否要啟用滾動動畫，true/false，數字為延遲幾秒
-          markers: true,
-        },
-      })
-      .to("#banner__item-1", {
-        x: -10,
-        y: 30,
-        duration: 0.5,
-        ease: "none",
-        scrollTrigger: {
-          start: "100",
-          end: "300",
-          pin: true,
-          scrub: 0.5,
-          // markers: true,
-        },
-      })
-      .to("#banner__item-2", {
-        x: 40,
-        y: -50,
-        rotation: 12,
-        duration: 0.5,
-        ease: "none",
-        scrollTrigger: {
-          start: "100",
-          end: "300",
-          pin: true,
-          scrub: 0.5,
-          // markers: true,
-        },
-      })
-      .to("#banner__item-3", {
-        x: 120,
-        y: -80,
-        rotation: -16,
-        duration: 0.5,
-        ease: "none",
-        scrollTrigger: {
-          start: "100",
-          end: "300",
-          pin: true,
-          scrub: 0.5,
-          // markers: true,
-        },
-      })
-      .to("#banner__item-4", {
-        x: -70,
-        y: -70,
-        rotation: 9,
-        duration: 0.5,
-        ease: "none",
-        scrollTrigger: {
-          start: "100",
-          end: "300",
-          pin: true,
-          scrub: 0.5,
-          // markers: true,
-        },
-      })
-      .to("#banner__item-5", {
-        x: 60,
-        y: -80,
-        rotation: -10,
-        duration: 0.5,
-        ease: "none",
-        scrollTrigger: {
-          start: "100",
-          end: "300",
-          pin: true,
-          scrub: 0.5,
-          // markers: true,
-        },
-      })
-      .to("#banner__item-6", {
-        x: -130,
-        y: -10,
-        rotation: -6,
-        duration: 0.5,
-        ease: "none",
-        scrollTrigger: {
-          start: "100",
-          end: "300",
-          pin: true,
-          scrub: 0.5,
-          // markers: true,
-        },
-      })
-      .to("#banner__item-7", {
-        x: -150,
-        y: -140,
-        rotation: 6,
-        duration: 0.5,
-        ease: "none",
-        scrollTrigger: {
-          start: "100",
-          end: "300",
-          pin: true,
-          scrub: 0.5,
-          // markers: true,
-        },
-      })
-      .to("#banner__item-8", {
-        x: -20,
-        y: 40,
-        rotation: 4,
-        duration: 0.5,
-        ease: "none",
-        scrollTrigger: {
-          start: "100",
-          end: "300",
-          pin: true,
-          scrub: 0.5,
-          // markers: true,
-        },
+      ScrollTrigger.create({
+        id: "Banner",
+        trigger: ".banner",
+        pin: true,
+        start: "top top",
+        end: isWeb ? "+=600" : isPad ? "+=400" : "+=300", //+=600 +=400 +=300
+        // markers: true,
       });
-  });
-  mm.add("(min-width: 769px)", () => {
-    ScrollTrigger.create({
-      trigger: ".banner",
-      pin: true,
-      start: "top top",
-      end: "+=400", //+=500
-      // markers: true,
-    });
 
-    let bannerItems = gsap.timeline();
+      let bannerItems = gsap.timeline();
 
-    bannerItems
-      .to(".banner__list", {
-        y: "-60%",
-        duration: 2,
-        ease: "none",
-        scrollTrigger: {
-          trigger: ".banner__list",
-          start: "top top",
-          end: "+=200 top",
-          pin: true,
-          scrub: 1,
-          markers: true,
-        },
-      })
-      .to("#banner__item-1", {
-        x: -10,
-        y: 30,
-        duration: 0.5,
-        ease: "none",
-        scrollTrigger: {
-          start: "100",
-          end: "300",
-          pin: true,
-          scrub: 0.5,
-          // markers: true,
-        },
-      })
-      .to("#banner__item-2", {
-        x: 40,
-        y: -50,
-        rotation: 12,
-        duration: 0.5,
-        ease: "none",
-        scrollTrigger: {
-          start: "100",
-          end: "300",
-          pin: true,
-          scrub: 0.5,
-          // markers: true,
-        },
-      })
-      .to("#banner__item-3", {
-        x: 120,
-        y: -80,
-        rotation: -16,
-        duration: 0.5,
-        ease: "none",
-        scrollTrigger: {
-          start: "100",
-          end: "300",
-          pin: true,
-          scrub: 0.5,
-          // markers: true,
-        },
-      })
-      .to("#banner__item-4", {
-        x: -70,
-        y: -70,
-        rotation: 9,
-        duration: 0.5,
-        ease: "none",
-        scrollTrigger: {
-          start: "100",
-          end: "300",
-          pin: true,
-          scrub: 0.5,
-          // markers: true,
-        },
-      })
-      .to("#banner__item-5", {
-        x: 60,
-        y: -80,
-        rotation: -10,
-        duration: 0.5,
-        ease: "none",
-        scrollTrigger: {
-          start: "100",
-          end: "300",
-          pin: true,
-          scrub: 0.5,
-          // markers: true,
-        },
-      })
-      .to("#banner__item-6", {
-        x: -130,
-        y: -10,
-        rotation: -6,
-        duration: 0.5,
-        ease: "none",
-        scrollTrigger: {
-          start: "100",
-          end: "300",
-          pin: true,
-          scrub: 0.5,
-          // markers: true,
-        },
-      })
-      .to("#banner__item-7", {
-        x: -150,
-        y: -140,
-        rotation: 6,
-        duration: 0.5,
-        ease: "none",
-        scrollTrigger: {
-          start: "100",
-          end: "300",
-          pin: true,
-          scrub: 0.5,
-          // markers: true,
-        },
-      })
-      .to("#banner__item-8", {
-        x: -20,
-        y: 40,
-        rotation: 4,
-        duration: 0.5,
-        ease: "none",
-        scrollTrigger: {
-          start: "100",
-          end: "300",
-          pin: true,
-          scrub: 0.5,
-          // markers: true,
-        },
-      });
-  });
-  mm.add("(max-width: 768px)", () => {
-    ScrollTrigger.create({
-      trigger: ".banner",
-      pin: true,
-      start: "top top",
-      end: "+=300",
-      markers: true,
-    });
-    let bannerItems = gsap.timeline();
-    bannerItems
-      .to(".banner__list", {
-        y: "-6%",
-        duration: 2,
-        ease: "none",
-        scrollTrigger: {
-          trigger: ".banner__list",
-          start: "top top",
-          end: "+=100 top",
-          pin: true,
-          scrub: 1,
-          // markers: true,
-        },
-      })
-      .to("#banner__item-1", {
-        x: 35,
-        y: -70,
-        duration: 0.5,
-        ease: "none",
-        scrollTrigger: {
-          start: "100",
-          end: "200",
-          pin: true,
-          scrub: 0.5,
-        },
-      })
-      .to("#banner__item-4", {
-        x: -30,
-        y: -40,
-        duration: 0.5,
-        ease: "none",
-        scrollTrigger: {
-          start: "100",
-          end: "200",
-          pin: true,
-          scrub: 0.5,
-        },
-      })
-      .to("#banner__item-6", {
-        x: 20,
-        y: -10,
-        duration: 0.5,
-        ease: "none",
-        scrollTrigger: {
-          start: "100",
-          end: "200",
-          pin: true,
-          scrub: 0.5,
-        },
-      });
-  });
-
-  // ScrollTrigger.create({
-  //   trigger: ".banner",
-  //   pin: true,
-  //   start: "top top",
-  //   end: "+=600", //+=500
-  //   markers: true,
-  // });
-
-  // let bannerItems = gsap.timeline();
-  // bannerItems
-  //   .to(".banner__list", {
-  //     y: -540, //x、y 移動位置
-  //     duration: 2, //秒數
-  //     ease: "none", //動畫效果
-  //     scrollTrigger: {
-  //       trigger: ".banner__list", //觸發得物件
-  //       start: "top top", // (物件開始位置, 卷軸開始位置) top center bottom px
-  //       end: "+=200 top", //(物件結束位置, 卷軸結束位置) , 也可以設卷軸捲動多少結束動畫(+=200)
-  //       pin: true, // 物件執行完動畫會跟著卷軸走，類似 fixed-top
-  //       scrub: 1, // 是否要啟用滾動動畫，true/false，數字為延遲幾秒
-  //       markers: true,
-  //     },
-  //   })
-  //   .to("#banner__item-1", {
-  //     x: -10,
-  //     y: 30,
-  //     duration: 0.5,
-  //     ease: "none",
-  //     scrollTrigger: {
-  //       start: "100",
-  //       end: "300",
-  //       pin: true,
-  //       scrub: 0.5,
-  //       // markers: true,
-  //     },
-  //   })
-  //   .to("#banner__item-2", {
-  //     x: 40,
-  //     y: -50,
-  //     rotation: 12,
-  //     duration: 0.5,
-  //     ease: "none",
-  //     scrollTrigger: {
-  //       start: "100",
-  //       end: "300",
-  //       pin: true,
-  //       scrub: 0.5,
-  //       // markers: true,
-  //     },
-  //   })
-  //   .to("#banner__item-3", {
-  //     x: 120,
-  //     y: -80,
-  //     rotation: -16,
-  //     duration: 0.5,
-  //     ease: "none",
-  //     scrollTrigger: {
-  //       start: "100",
-  //       end: "300",
-  //       pin: true,
-  //       scrub: 0.5,
-  //       // markers: true,
-  //     },
-  //   })
-  //   .to("#banner__item-4", {
-  //     x: -70,
-  //     y: -70,
-  //     rotation: 9,
-  //     duration: 0.5,
-  //     ease: "none",
-  //     scrollTrigger: {
-  //       start: "100",
-  //       end: "300",
-  //       pin: true,
-  //       scrub: 0.5,
-  //       // markers: true,
-  //     },
-  //   })
-  //   .to("#banner__item-5", {
-  //     x: 60,
-  //     y: -80,
-  //     rotation: -10,
-  //     duration: 0.5,
-  //     ease: "none",
-  //     scrollTrigger: {
-  //       start: "100",
-  //       end: "300",
-  //       pin: true,
-  //       scrub: 0.5,
-  //       // markers: true,
-  //     },
-  //   })
-  //   .to("#banner__item-6", {
-  //     x: -130,
-  //     y: -10,
-  //     rotation: -6,
-  //     duration: 0.5,
-  //     ease: "none",
-  //     scrollTrigger: {
-  //       start: "100",
-  //       end: "300",
-  //       pin: true,
-  //       scrub: 0.5,
-  //       // markers: true,
-  //     },
-  //   })
-  //   .to("#banner__item-7", {
-  //     x: -150,
-  //     y: -140,
-  //     rotation: 6,
-  //     duration: 0.5,
-  //     ease: "none",
-  //     scrollTrigger: {
-  //       start: "100",
-  //       end: "300",
-  //       pin: true,
-  //       scrub: 0.5,
-  //       // markers: true,
-  //     },
-  //   })
-  //   .to("#banner__item-8", {
-  //     x: -20,
-  //     y: 40,
-  //     rotation: 4,
-  //     duration: 0.5,
-  //     ease: "none",
-  //     scrollTrigger: {
-  //       start: "100",
-  //       end: "300",
-  //       pin: true,
-  //       scrub: 0.5,
-  //       // markers: true,
-  //     },
-  //   });
+      bannerItems
+        .to(".banner__list", {
+          y: isWeb ? "-56%" : isPad ? "-60%" : "-6%", //isWeb ? (min-width: 1025px) : isPad ? (min-width: 769px) : (max-width: 768px),
+          duration: 2,
+          ease: "none",
+          scrollTrigger: {
+            trigger: ".banner__list",
+            start: "top top",
+            end: "+=200 top",
+            pin: true,
+            scrub: 1,
+            // markers: true,
+          },
+        })
+        .to("#banner__item-1", {
+          x: isMobile ? 35 : -10, // isMobile ? 35 : -10,
+          y: isMobile ? -70 : 30,
+          duration: 0.5,
+          ease: "none",
+          scrollTrigger: {
+            start: "100",
+            end: "300",
+            pin: true,
+            scrub: 0.5,
+            // markers: true,
+          },
+        })
+        .to("#banner__item-2", {
+          x: 40,
+          y: -50,
+          rotation: 12,
+          duration: 0.5,
+          ease: "none",
+          scrollTrigger: {
+            start: "100",
+            end: "300",
+            pin: true,
+            scrub: 0.5,
+            // markers: true,
+          },
+        })
+        .to("#banner__item-3", {
+          x: 120,
+          y: -80,
+          rotation: -16,
+          duration: 0.5,
+          ease: "none",
+          scrollTrigger: {
+            start: "100",
+            end: "300",
+            pin: true,
+            scrub: 0.5,
+            // markers: true,
+          },
+        })
+        .to("#banner__item-4", {
+          x: isMobile ? -30 : 40,
+          y: isMobile ? -40 : -50,
+          rotation: 9,
+          duration: 0.5,
+          ease: "none",
+          scrollTrigger: {
+            start: "100",
+            end: "300",
+            pin: true,
+            scrub: 0.5,
+            // markers: true,
+          },
+        })
+        .to("#banner__item-5", {
+          x: 60,
+          y: -80,
+          rotation: -10,
+          duration: 0.5,
+          ease: "none",
+          scrollTrigger: {
+            start: "100",
+            end: "300",
+            pin: true,
+            scrub: 0.5,
+            // markers: true,
+          },
+        })
+        .to("#banner__item-6", {
+          x: isMobile ? 20 : -130,
+          y: isMobile ? -10 : -10,
+          rotation: -6,
+          duration: 0.5,
+          ease: "none",
+          scrollTrigger: {
+            start: "100",
+            end: "300",
+            pin: true,
+            scrub: 0.5,
+            // markers: true,
+          },
+        })
+        .to("#banner__item-7", {
+          x: -150,
+          y: -140,
+          rotation: 6,
+          duration: 0.5,
+          ease: "none",
+          scrollTrigger: {
+            start: "100",
+            end: "300",
+            pin: true,
+            scrub: 0.5,
+            // markers: true,
+          },
+        })
+        .to("#banner__item-8", {
+          x: -20,
+          y: 40,
+          rotation: 4,
+          duration: 0.5,
+          ease: "none",
+          scrollTrigger: {
+            start: "100",
+            end: "300",
+            pin: true,
+            scrub: 0.5,
+            // markers: true,
+          },
+        });
+    }
+  );
 });
+
 // onUnmounted(() => {
 //   // 把 ScrollTrigger 綁定的動畫消除
 //   bannerItems.kill();
