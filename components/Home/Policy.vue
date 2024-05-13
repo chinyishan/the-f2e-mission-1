@@ -36,6 +36,8 @@
           <div class="policy__swiperPic-wrap">
             <div class="policy__swiperPic-img" id="swiper-img-1">
               <img
+                class="pic"
+                id="pic-1"
                 src="@/assets/images/policy-1.png"
                 alt="01-設立寵物醫療基金"
                 title="01-設立寵物醫療基金"
@@ -43,6 +45,8 @@
             </div>
             <div class="policy__swiperPic-img" id="swiper-img-2">
               <img
+                class="pic"
+                id="pic-2"
                 src="@/assets/images/policy-2.png"
                 alt="02-提供醫療補助"
                 title="02-提供醫療補助"
@@ -50,6 +54,8 @@
             </div>
             <div class="policy__swiperPic-img" id="swiper-img-3">
               <img
+                class="pic"
+                id="pic-3"
                 src="@/assets/images/policy-3.png"
                 alt="03-合作動物醫院"
                 title="03-合作動物醫院"
@@ -85,16 +91,129 @@ onMounted(() => {
       let { isMobile, isPad, isWeb } = context.conditions;
 
       if (isMobile) {
-        ScrollTrigger.getById("policyRow").kill();
+        ScrollTrigger.create({
+          id: "policyRow",
+          trigger: ".policy__row",
+          pin: true,
+          start: "-100 top",
+          end: "+=1800", //+=1000"
+          scrub: 0.5,
+          markers: true,
+          animation: gsap
+            .timeline()
+            .to("#policy__content-1", {
+              left: 50,
+              opacity: 0,
+              duration: 0.5,
+              ease: "power1.out",
+              delay: 1,
+            })
+            .to(
+              ".policy__swiperPic-wrap",
+              {
+                x: "-89vw",
+                opacity: 1,
+                duration: 0.5,
+                ease: "power1.out",
+              },
+              "<"
+            )
+            .to(
+              "#policy__content-2",
+              {
+                left: 0,
+                opacity: 1,
+                duration: 0.5,
+                ease: "power1.out",
+              },
+              "<"
+            )
+            .to(
+              "#policy__content-2",
+              {
+                left: 0,
+                opacity: 1,
+                duration: 0.5,
+                ease: "power1.out",
+              },
+              "<"
+            )
+            .to(
+              "#pic-1",
+              {
+                opacity: 0.5,
+                duration: 0.5,
+                ease: "power1.out",
+              },
+              "<"
+            )
+            .to(
+              "#pic-2",
+              {
+                opacity: 1,
+                duration: 0.5,
+                ease: "power1.out",
+              },
+              "<"
+            )
+            .to("#policy__content-2", {
+              left: 50,
+              opacity: 0,
+              duration: 0.5,
+              ease: "power1.out",
+              delay: 1,
+            })
+            .to(
+              ".policy__swiperPic-wrap",
+              {
+                x: "-175vw",
+                opacity: 1,
+                duration: 0.5,
+                ease: "power1.out",
+              },
+              "<"
+            )
+            .to(
+              "#policy__content-3",
+              {
+                left: 0,
+                opacity: 1,
+                duration: 0.5,
+                ease: "power1.out",
+              },
+              "<"
+            )
+            .to(
+              "#pic-2",
+              {
+                opacity: 0.5,
+                duration: 0.5,
+                ease: "power1.out",
+              },
+              "<"
+            )
+            .to(
+              "#pic-3",
+              {
+                opacity: 1,
+                duration: 0.5,
+                ease: "power1.out",
+              },
+              "<"
+            )
+            .to("#pic-3", {
+              delay: 2,
+            }),
+        });
       } else {
         ScrollTrigger.create({
           id: "policyRow",
           trigger: ".policy__row",
           pin: true,
-          start: isWeb ? "-100 top" : "-300 top",
+          start: isWeb ? "-100 top" : "-200 top",
           end: "+=1800", //+=1000"
           scrub: 0.5,
-          markers: true,
+          // markers: true,
           animation: gsap
             .timeline()
             .to("#policy__content-1", {
@@ -125,7 +244,7 @@ onMounted(() => {
               "<"
             )
             .to(
-              "#swiper-img-1",
+              "#pic-1",
               {
                 right: 0,
                 opacity: 0.5,
@@ -135,7 +254,7 @@ onMounted(() => {
               "<"
             )
             .to(
-              "#swiper-img-2",
+              "#pic-2",
               {
                 right: 50,
                 opacity: 1,
@@ -172,7 +291,7 @@ onMounted(() => {
               "<"
             )
             .to(
-              "#swiper-img-2",
+              "#pic-2",
               {
                 right: 0,
                 opacity: 0.5,
@@ -182,7 +301,7 @@ onMounted(() => {
               "<"
             )
             .to(
-              "#swiper-img-3",
+              "#pic-3",
               {
                 right: 50,
                 opacity: 1,
@@ -191,7 +310,7 @@ onMounted(() => {
               },
               "<"
             )
-            .to("#swiper-img-3", {
+            .to("#pic-3", {
               delay: 2,
             }),
         });
@@ -212,6 +331,7 @@ onMounted(() => {
 
   @include pad-768() {
     border-radius: 0 0 40px 40px;
+    margin-bottom: 70px;
   }
 
   &__container {
@@ -223,15 +343,16 @@ onMounted(() => {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    padding: 11% 0 7%;
+    padding: 11% 0 11%;
+    box-sizing: border-box;
     // overflow: hidden;
 
     @include pad-1024() {
       padding: 18% 0 12%;
     }
     @include pad-768() {
-      padding: 10% 0 10%;
-      flex-direction: column;
+      padding: 50px 0 50px;
+      flex-direction: column-reverse;
     }
   }
   &__col {
@@ -240,6 +361,7 @@ onMounted(() => {
 
     @include pad-768() {
       width: 100%;
+      margin: 0% 0% 0%;
     }
   }
   &__content {
@@ -249,6 +371,7 @@ onMounted(() => {
 
     @include pad-768() {
       width: 100%;
+      padding: 0% 0% 10%;
     }
 
     #policy__content-1 {
@@ -262,13 +385,6 @@ onMounted(() => {
       top: 0px;
       left: -50px;
       opacity: 0;
-
-      // @include pad-768() {
-      //   position: relative;
-      //   top: 0px;
-      //   left: 0px;
-      //   opacity: 1;
-      // }
     }
     #policy__content-3 {
       position: absolute;
@@ -277,13 +393,6 @@ onMounted(() => {
       top: 0px;
       left: -50px;
       opacity: 0;
-
-      // @include pad-768() {
-      //   position: relative;
-      //   top: 0px;
-      //   left: 0px;
-      //   opacity: 1;
-      // }
     }
   }
   &__noImg {
@@ -294,7 +403,7 @@ onMounted(() => {
     left: -13%;
 
     @include pad-768() {
-      top: 0%;
+      top: -58%;
       left: 0%;
       width: 100%;
     }
@@ -304,14 +413,31 @@ onMounted(() => {
 
     &-title {
       font-family: "Noto Sans TC", sans-serif;
-      font-size: calc(28px + 1vw);
-      line-height: calc(28px + 1vw);
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 60px;
       text-align: left;
-      margin-bottom: 1vw;
+      margin-bottom: 8px;
       color: $secondary-dark;
     }
     &-subTitle {
       color: $secondary-dark;
+      font-size: 24px;
+      line-height: 36px;
+      font-weight: 700;
+    }
+
+    @include pad-768() {
+      margin-bottom: 20px;
+
+      &-title {
+        font-size: 28px;
+        line-height: 42px;
+      }
+      &-subTitle {
+        font-size: 16px;
+        line-height: 25px;
+      }
     }
   }
   &__list {
@@ -324,14 +450,25 @@ onMounted(() => {
 
     &-title {
       font-family: "Noto Sans TC", sans-serif;
-      font-size: calc(20px + 0.3vw);
-      line-height: calc(22px + 0.3vw);
-      font-weight: 600;
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 36px;
+      text-align: left;
       letter-spacing: 2px;
       margin-bottom: 16px;
     }
     &:last-child {
       margin-bottom: 0px;
+    }
+
+    @include pad-768() {
+      margin-bottom: 16px;
+
+      &-title {
+        font-size: 16px;
+        line-height: 25px;
+        margin-bottom: 10px;
+      }
     }
   }
   &__swiperPic {
@@ -344,27 +481,69 @@ onMounted(() => {
       position: absolute;
       width: 100%;
       height: auto;
-      // top: 50%;
-      // top: 0%;
       right: 0%;
-      // bottom: -580px;
       bottom: -100%;
       transform: rotate(8deg);
-      // translate(0%, 0%)
       opacity: 1;
-
-      @include pad-1024() {
-        bottom: -50%;
-      }
     }
     &-img {
       position: relative;
       margin: 6% 4%;
-      opacity: 0.6;
+      border-radius: 20px;
+      background: $primary-default;
 
-      &#swiper-img-1 {
-        opacity: 1;
+      .pic {
+        position: relative;
+        opacity: 0.5;
+        border-radius: 20px;
+        box-shadow: 6px 8px 0px 0px #fadca8;
+        overflow: hidden;
+      }
+
+      #pic-1 {
         right: 50px;
+        opacity: 1;
+      }
+    }
+
+    @include pad-1024() {
+      &-wrap {
+        width: 130%;
+        right: -40%;
+        bottom: -32%;
+      }
+    }
+
+    @include pad-768() {
+      width: 220%;
+      min-width: 220%;
+      height: auto;
+
+      &-wrap {
+        position: relative;
+        display: flex;
+        transform: rotate(0deg);
+        bottom: 8%;
+        left: 30%;
+      }
+      &-img {
+        margin: 2% 2%;
+        transform: rotate(10deg);
+        border-radius: 6px;
+
+        .pic {
+          border-radius: 6px;
+          box-shadow: 6px 6px 0px 0px #fadca8;
+        }
+        #pic-1 {
+          right: 0px;
+        }
+      }
+    }
+
+    @include phone-428() {
+      &-wrap {
+        left: 30%;
       }
     }
   }

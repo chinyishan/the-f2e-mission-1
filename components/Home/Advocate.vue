@@ -47,22 +47,34 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 onMounted(() => {
-  let vote = gsap.timeline();
+  let mm = gsap.matchMedia();
 
-  vote.to(".advocate__vote-ballot", {
-    rotate: 30,
-    scrollTrigger: {
-      trigger: ".advocate__vote-ballot",
-      y: 100,
-      start: "-200 top",
-      end: "200 top",
-      duration: 1,
-      ease: "none",
-      pin: true,
-      scrub: true,
-      // markers: true,
+  mm.add(
+    {
+      isMobile: "(max-width: 768px)",
+      isPad: "(min-width: 769px)",
+      isWeb: "(min-width: 1025px)",
     },
-  });
+    (context) => {
+      let { isMobile, isPad, isWeb } = context.conditions;
+      let vote = gsap.timeline();
+
+      vote.to(".advocate__vote-ballot", {
+        rotate: 30,
+        y: isWeb ? 440 : isMobile ? 220 : 320,
+        scrollTrigger: {
+          trigger: ".advocate__vote-ballot",
+          start: isMobile ? "-300 top" : "-200 top",
+          end: isMobile ? "top top" : "200 top",
+          duration: 1,
+          ease: "power2.out",
+          pin: false,
+          scrub: true,
+          // markers: true,
+        },
+      });
+    }
+  );
 });
 </script>
 

@@ -1,6 +1,6 @@
 <template>
   <section class="section donate">
-    <div class="container">
+    <div class="container donate-container">
       <h2 class="donate__lumpTitle">
         您的小筆捐款，<strong>是每隻毛孩未來的大大動力！</strong>
       </h2>
@@ -53,6 +53,10 @@ const { data } = await useFetch(`/api/base`);
     z-index: -1;
   }
 
+  // .donate-container {
+  //   width: min(1200px, 90%);
+  // }
+
   @include pad-768() {
     padding-bottom: 110px;
     margin-bottom: 40px;
@@ -68,12 +72,6 @@ const { data } = await useFetch(`/api/base`);
       left: 50%;
       transform: translate(-50%, 0%);
     }
-  }
-
-  .container {
-    width: min(1200px, 82%);
-    position: relative;
-    z-index: 2;
   }
   &__lumpTitle {
     font-size: 40px;
@@ -134,6 +132,10 @@ const { data } = await useFetch(`/api/base`);
     border: 1px solid $primary-default;
     box-shadow: 6px 8px 0 0 $secondary-default;
     text-align: center;
+
+    @include pad-1024() {
+      width: 32%;
+    }
 
     @include pad-768() {
       width: 86%;

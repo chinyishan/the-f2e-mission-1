@@ -79,10 +79,10 @@ onMounted(() => {
     (context) => {
       let { isMobile, isPad, isWeb } = context.conditions;
 
-      if (isMobile) {
-        // 停止觸發器
-        ScrollTrigger.getById("newsSwiper").kill();
-      } else {
+      // 停止觸發器
+      // ScrollTrigger.getById("newsSwiper").kill();
+
+      if (!isMobile) {
         ScrollTrigger.create({
           id: "newsSwiper", //ScrollTrigger 的識別符字串id
           trigger: ".news__swiper",
