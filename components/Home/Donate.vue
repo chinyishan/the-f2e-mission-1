@@ -9,7 +9,7 @@
         <li class="donate__item" v-for="item in data.donate" :key="item.id">
           <h3 class="donate__item-name">{{ item.title }}</h3>
           <p class="donate__item-price">捐款新台幣{{ item.price }}元</p>
-          <button class="donate__item-btn">馬上支持 !</button>
+          <button class="donate__item-btn btn">馬上支持 !</button>
           <span class="donate__item-people">已有 {{ item.people }} 人贊助</span>
         </li>
       </ul>
@@ -20,8 +20,11 @@
           <label class="donate__custom-label">NT$</label>
           <input class="donate__custom-input" type="text" />
         </div>
-        <button class="donate__custom-btn">馬上支持 !</button>
+        <button class="donate__custom-btn btn">馬上支持 !</button>
       </div>
+    </div>
+    <div class="modal donate__modal">
+      <div class="dialog donate__dialog"></div>
     </div>
   </section>
 </template>

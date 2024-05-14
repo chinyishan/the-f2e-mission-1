@@ -58,7 +58,7 @@
           </div>
         </form>
         <div class="suggest__submit">
-          <button class="suggest__submit-btn">送出</button>
+          <button class="suggest__submit-btn btn">送出</button>
           <p class="suggest__submit-text">為了喵喵站出來！</p>
         </div>
       </div>

@@ -98,7 +98,7 @@ onMounted(() => {
           start: "-100 top",
           end: "+=1800", //+=1000"
           scrub: 0.5,
-          markers: true,
+          // markers: true,
           animation: gsap
             .timeline()
             .to("#policy__content-1", {

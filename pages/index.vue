@@ -6,6 +6,7 @@
     <HomePolicy />
     <HomeDonate />
     <HomeSuggest />
+    <DialogThank />
   </div>
 </template>
 <script setup></script>
