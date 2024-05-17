@@ -33,7 +33,7 @@
   height: 100vh;
   background: rgb(6, 37, 35, 0.5);
   z-index: 100;
-  display: block;
+  display: none;
 }
 .thankDialog {
   &__dialog {
@@ -72,6 +72,14 @@
     padding: 0% 0% 8%;
   }
   &__btn {
+    width: Hug (128px) px;
+    height: Hug (40px) px;
+    top: 200px;
+    left: 104px;
+    padding: 8px 32px 8px 32px;
+    gap: 10px;
+    border-radius: 8px 0px 0px 0px;
+    opacity: 0px;
   }
 }
 </style>
