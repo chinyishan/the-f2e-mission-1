@@ -19,6 +19,7 @@
                 id="name"
                 name="name"
                 placeholder="請輸入姓名"
+                v-model="form.name"
               />
             </div>
             <div class="suggest__form-item">
@@ -30,6 +31,7 @@
                 name="email"
                 placeholder="請輸入Email"
                 pattern=".+@.com"
+                v-model="form.email"
               />
             </div>
             <div class="suggest__form-item">
@@ -41,6 +43,7 @@
                 name="tel"
                 placeholder="請輸入手機號碼"
                 pattern="[0-9]{10}"
+                v-model="form.tel"
               />
             </div>
           </div>
@@ -49,25 +52,85 @@
               <label class="suggest__form-label" for="lname">您的建言</label>
               <textarea
                 class="suggest__form-textarea"
-                id="word"
-                name="word"
+                id="message"
+                name="message"
                 rows="13"
                 placeholder="請輸入想和喵喵說的話"
+                v-model="form.message"
               ></textarea>
             </div>
           </div>
         </form>
         <div class="suggest__submit">
-          <button class="suggest__submit-btn btn">送出</button>
+          <button class="suggest__submit-btn btn" @click="handleSubmit()">
+            送出
+          </button>
           <p class="suggest__submit-text">為了喵喵站出來！</p>
         </div>
       </div>
     </div>
+    <DialogThank :showDialog="showDialog" @close="handleClose">
+      <template v-slot:header>感謝您的發聲</template>
+      <template v-slot:body>您的建議正朝向喵喵飛奔中 !</template>
+      <template v-slot:footer>好的！</template>
+    </DialogThank>
   </section>
 </template>
 
-<script>
-export default {};
+<script setup>
+import emailjs from "@emailjs/browser";
+
+const form = ref({
+  name: "",
+  email: "",
+  tel: "",
+  message: "",
+});
+const showDialog = ref(false);
+
+/**const response = await emailjs.send(
+    "YOUR_SERVICE_ID",
+    "YOUR_TEMPLATE_ID",
+    form.value,
+    "YOUR_USER_ID"
+  ); */
+
+const handleSubmit = async () => {
+  try {
+    const response = await emailjs.send(
+      "service_13wbyishan",
+      "template_1313tpyishan",
+      form.value,
+      "YDvefh3GRmgYmq1pA"
+    );
+    if (response.status === 200) {
+      handleOpen();
+      resetForm();
+    } else {
+      alert("發送失敗，請稍後再試");
+    }
+  } catch (error) {
+    console.error("发送邮件时发生错误:", error);
+    alert("發送失敗，請稍後再試");
+  }
+};
+
+const handleOpen = () => {
+  showDialog.value = true;
+};
+
+const handleClose = () => {
+  showDialog.value = false;
+};
+
+const resetForm = () => {
+  form.value = {
+    name: "",
+    email: "",
+    tel: "",
+    message: "",
+  };
+};
 </script>
 
 <style lang="scss" scoped>

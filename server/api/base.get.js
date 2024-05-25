@@ -52,7 +52,7 @@ export default defineEventHandler((event) => {
     },
     {
       id: 3,
-      title: "「喵星人之友」",
+      title: "「喵星傳奇」",
       price: "60,000",
       people: "999",
     },
