@@ -26,11 +26,31 @@
       </div>
       <div class="header__group" :class="{ listShow: listShow }">
         <ul class="header__list">
-          <li class="header__item"><NuxtLink to="/">候選人主張</NuxtLink></li>
-          <li class="header__item"><NuxtLink to="/">最新活動</NuxtLink></li>
-          <li class="header__item"><NuxtLink to="/">政策議題</NuxtLink></li>
-          <li class="header__item"><NuxtLink to="/">小額捐款</NuxtLink></li>
-          <li class="header__item"><NuxtLink to="/">服務信箱</NuxtLink></li>
+          <li class="header__item">
+            <NuxtLink to="javascript:void(0)" @click="goAnchor('advocate')"
+              >候選人主張</NuxtLink
+            >
+          </li>
+          <li class="header__item">
+            <NuxtLink to="javascript:void(0)" @click="goAnchor('news')"
+              >最新活動</NuxtLink
+            >
+          </li>
+          <li class="header__item">
+            <NuxtLink to="javascript:void(0)" @click="goAnchor('policy')"
+              >政策議題</NuxtLink
+            >
+          </li>
+          <li class="header__item">
+            <NuxtLink to="javascript:void(0)" @click="goAnchor('donate')"
+              >小額捐款</NuxtLink
+            >
+          </li>
+          <li class="header__item">
+            <NuxtLink to="javascript:void(0)" @click="goAnchor('suggest')"
+              >服務信箱</NuxtLink
+            >
+          </li>
         </ul>
         <div class="header__links">
           <a href="#" target="_blank"
@@ -61,5 +81,12 @@ const listShow = ref(false);
 const isOpenClose = () => {
   openClose.value = !openClose.value;
   listShow.value = !listShow.value;
+};
+
+const goAnchor = (id) => {
+  const element = document.getElementById(id);
+  if (element) {
+    element.scrollIntoView({ behavior: "smooth" });
+  }
 };
 </script>

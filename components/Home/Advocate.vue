@@ -1,5 +1,5 @@
 <template>
-  <section class="section advocate">
+  <section class="section advocate" id="advocate">
     <div class="container">
       <h2 class="advocate__title">
         <strong class="advocate__title-ch">喵立翰</strong>

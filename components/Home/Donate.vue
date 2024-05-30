@@ -1,5 +1,5 @@
 <template>
-  <section class="section donate">
+  <section class="section donate" id="donate">
     <div class="container donate-container">
       <h2 class="donate__lumpTitle">
         您的小筆捐款，<strong>是每隻毛孩未來的大大動力！</strong>

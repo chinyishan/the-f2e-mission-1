@@ -1,5 +1,5 @@
 <template>
-  <section class="section policy">
+  <section class="section policy" id="policy">
     <div class="container policy__container">
       <div class="policy__row">
         <div class="policy__col policy__content">

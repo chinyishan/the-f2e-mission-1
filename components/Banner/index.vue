@@ -1,8 +1,8 @@
 <template>
   <div class="banner">
     <h2 class="banner__title">
-      <strong>喵的未來</strong>
-      <strong>人的希望</strong>
+      <strong class="banner__title-left">喵的未來</strong>
+      <strong class="banner__title-right">人的希望</strong>
     </h2>
     <h3 class="banner__subtitle">
       <strong class="banner__subtitle-ch">喵立翰</strong>
@@ -82,6 +82,33 @@ gsap.registerPlugin(ScrollTrigger);
 onMounted(() => {
   let mm = gsap.matchMedia();
 
+  gsap.from(".banner__cat", {
+    y: 1000,
+    x: 200,
+    opacity: 0,
+    rotation: 30,
+    duration: 1,
+  });
+
+  gsap.from(".banner__title-left", {
+    x: -1000,
+    opacity: 0,
+    duration: 1,
+    delay: 1,
+  });
+  gsap.from(".banner__title-right", {
+    x: 1000,
+    opacity: 0,
+    duration: 1,
+    delay: 1,
+  });
+  gsap.from(".banner__subtitle", {
+    y: 1000,
+    opacity: 0,
+    duration: 1,
+    delay: 1,
+  });
+
   mm.add(
     {
       // 設定斷點
@@ -108,7 +135,7 @@ onMounted(() => {
 
       bannerItems
         .to(".banner__list", {
-          y: isWeb ? "-56%" : isPad ? "-60%" : "-6%", //isWeb ? (min-width: 1025px) : isPad ? (min-width: 769px) : (max-width: 768px),
+          y: isWeb ? "-56%" : isPad ? "-60%" : -60, //isWeb ? (min-width: 1025px) : isPad ? (min-width: 769px) : (max-width: 768px),
           duration: 2,
           ease: "none",
           scrollTrigger: {
@@ -267,7 +294,7 @@ onMounted(() => {
     line-height: 180px;
     font-family: "Noto Serif TC", serif;
     font-weight: 700;
-    letter-spacing: 1px;
+    letter-spacing: 1.6px;
     color: $primary-default;
     text-align: center;
 
@@ -277,15 +304,15 @@ onMounted(() => {
     }
     @include desktop-1440() {
       top: 50%;
-      font-size: calc(32px + 5vw);
-      line-height: calc(42px + 5vw);
+      font-size: calc(36px + 5vw);
+      line-height: calc(60px + 5vw);
 
       strong {
         display: inline-block;
       }
     }
     @include pad-768() {
-      top: 17%;
+      top: 16%;
 
       strong {
         display: block;
@@ -341,7 +368,7 @@ onMounted(() => {
 
     @include pad-768() {
       width: 90%;
-      top: 50%;
+      top: 47%;
 
       strong {
         display: block;

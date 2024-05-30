@@ -1,5 +1,5 @@
 <template>
-  <section class="section news">
+  <section class="section news" id="news">
     <div class="container news__container">
       <div class="news__box">
         <img src="@/assets/images/vote-box.png" alt="VOTA-BOX" />

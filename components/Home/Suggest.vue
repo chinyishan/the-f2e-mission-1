@@ -1,5 +1,5 @@
 <template>
-  <section class="section suggest">
+  <section class="section suggest" id="suggest">
     <div class="container">
       <h2 class="suggest__title">您的聲音，我們的行動！</h2>
       <div class="suggest__subtitle">
@@ -96,22 +96,31 @@ const showDialog = ref(false);
   ); */
 
 const handleSubmit = async () => {
-  try {
-    const response = await emailjs.send(
-      "service_13wbyishan",
-      "template_1313tpyishan",
-      form.value,
-      "YDvefh3GRmgYmq1pA"
-    );
-    if (response.status === 200) {
-      handleOpen();
-      resetForm();
-    } else {
+  if (
+    form.value.name != "" &&
+    form.value.email != "" &&
+    form.value.tel != "" &&
+    form.value.message != ""
+  ) {
+    try {
+      const response = await emailjs.send(
+        "service_13wbyishan",
+        "template_1313tpyishan",
+        form.value,
+        "YDvefh3GRmgYmq1pA"
+      );
+      if (response.status === 200) {
+        handleOpen();
+        resetForm();
+      } else {
+        alert("發送失敗，請稍後再試");
+      }
+    } catch (error) {
+      console.error("發送郵件時發生錯誤:", error);
       alert("發送失敗，請稍後再試");
     }
-  } catch (error) {
-    console.error("发送邮件时发生错误:", error);
-    alert("發送失敗，請稍後再試");
+  } else {
+    alert("表單請填寫完整");
   }
 };
 
