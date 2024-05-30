@@ -47,7 +47,14 @@ export default defineNuxtConfig({
           content:
             "藉由推動更完善的貓咪福利和相關政策，更是間接地投資於台灣的未來。",
         },
-        { property: "og:img", content: "@/public/favicon.ico" },
+        { property: "og:image", content: "/header-web.jpg" },
+      ],
+      link: [
+        {
+          rel: "Shortcut Icon",
+          type: "image/x-icon",
+          href: "/favicon.ico",
+        },
       ],
       bodyAttrs: {
         class: "app-body",
