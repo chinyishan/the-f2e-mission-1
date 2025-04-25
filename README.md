@@ -1,31 +1,47 @@
 # 立委競選官網
 
-![image](/assets/images/home.jpg)
+## 專案簡介
+本專案為參加 六角學院舉辦之競賽活動 的作品，旨在透過現代感的版面設計與流暢動畫效果，塑造候選人專業且親民的形象。採用 Nuxt 作為開發框架，結合 GSAP 進行動畫控制與過場效果，並以 Swiper 實現重點內容輪播展示，提升網站的視覺豐富性與互動體驗。
 
-## 網站說明
+## Demo
 
-使用 Nuxt3 開發具有 SSR 的 Vue 網頁，動畫部分以 Gsap 製作滾動特效。
+<a href="https://the-f2e-mission-1.vercel.app/" target="_blank">網站連結</a>
 
-Demo : https://the-f2e-mission-1.vercel.app/
-
-## 系統說明
-
-### 版本
-使用 Node.js v18.15.0 環境下進行開發。
-
-### 專案運行
-```
-npm install
-npm run dev
-```
 
 ## 使用技術
-### 前端框架與函式庫
-Nuxt3：前端開發框架，具有 SSR 以利於 SEO 優化。
-GSAP：用於實現頁面滾動時的動畫效果的函式庫。
+- Nuxt 3：前端框架，負責路由管理與頁面渲染
+- GSAP：動畫特效控制（滾動動畫、入場過場效果）
+- Swiper.js：重點內容輪播（形象照、政見簡報等）
+- SCSS：版面樣式設計與響應式調整
 
-## 問題集中
+## 專案特色
+- 首頁運用滾動觸發動畫（ScrollTrigger），增加視覺流暢感
+- 形象區使用 Swiper 實現自動輪播與手動切換功能
+- 運用 GSAP 製作元件進場、滾動淡入、視差滾動等細節動畫
+- 響應式設計支援桌機、平板與手機裝置，提升各端用戶體驗
+- 簡潔有力的視覺風格，強化候選人品牌識別
 
-### v-for 動態綁定圖片無法顯示
+## 專案啟動方式
 
-解決 : 新增 composables/useImg.js
+```
+# 安裝依賴
+npm install
+
+# 開發模式啟動
+npm run dev
+
+# 編譯與部署
+npm run build
+npm run start
+```
+
+## 學習重點
+
+- 使用 Nuxt 進行伺服器端渲染，做 SEO 優化
+- GSAP 動畫流程控制與滾動互動設計（ScrollTrigger）
+- Swiper 元件高度客製化（自訂分頁、動畫參數）
+- 響應式排版與跨裝置動畫效果最佳化經驗
+
+## 網頁資料來源
+
+<a href="https://2023.thef2e.com/works" target="_blank">此UI設計為六角學院比賽中的參賽者所提供的設計稿資料</a>
