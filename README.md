@@ -7,6 +7,7 @@
 
 <a href="https://the-f2e-mission-1.vercel.app/" target="_blank">網站連結</a>
 
+https://github.com/user-attachments/assets/c10875af-72ad-4404-8f66-54266a271ae6
 
 ## 使用技術
 - Nuxt 3：前端框架，負責路由管理與頁面渲染
